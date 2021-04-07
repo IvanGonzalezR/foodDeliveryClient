@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import './XDTarjetaResultados.dart';
+import './XDSeleccinProducto.dart';
+import 'package:adobe_xd/page_link.dart';
 
 class XDBusqueda extends StatelessWidget {
   XDBusqueda({
@@ -279,101 +281,111 @@ class XDBusqueda extends StatelessWidget {
             fixedHeight: true,
             child:
                 // Adobe XD layer: 'Widget_Resultados' (group)
-                Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 144.0, 144.0),
-                  size: Size(144.0, 144.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child:
-                      // Adobe XD layer: 'Tarjeta-Resultados' (component)
-                      XDTarjetaResultados(),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(25.0, 0.0, 95.0, 96.0),
-                  size: Size(144.0, 144.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  fixedHeight: true,
-                  child:
-                      // Adobe XD layer: 'Image-Resultado' (shape)
-                      Container(
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                      image: DecorationImage(
-                        image: const AssetImage(''),
-                        fit: BoxFit.cover,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0x3d000000),
-                          offset: Offset(0, 3),
-                          blurRadius: 6,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(32.0, 101.0, 67.0, 19.0),
-                  size: Size(144.0, 144.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child:
-                      // Adobe XD layer: 'Producto' (text)
-                      Text(
-                    'Le Burguer',
-                    style: TextStyle(
-                      fontFamily: 'Segoe UI',
-                      fontSize: 14,
-                      color: const Color(0xff707070),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(8.0, 124.0, 49.0, 15.0),
-                  size: Size(144.0, 144.0),
-                  pinLeft: true,
-                  pinBottom: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child:
-                      // Adobe XD layer: 'Ubicación' (text)
-                      Text(
-                    'Torreón C.',
-                    style: TextStyle(
-                      fontFamily: 'Segoe UI',
-                      fontSize: 11,
-                      color: const Color(0xff707070),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(112.0, 124.0, 16.0, 16.0),
-                  size: Size(144.0, 144.0),
-                  pinRight: true,
-                  pinBottom: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child:
-                      // Adobe XD layer: 'Rating' (shape)
-                      Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: const AssetImage(''),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
+                PageLink(
+              links: [
+                PageLinkInfo(
+                  transition: LinkTransition.Fade,
+                  ease: Curves.easeOut,
+                  duration: 0.3,
+                  pageBuilder: () => XDSeleccinProducto(),
                 ),
               ],
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 144.0, 144.0),
+                    size: Size(144.0, 144.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinTop: true,
+                    pinBottom: true,
+                    child:
+                        // Adobe XD layer: 'Tarjeta-Resultados' (component)
+                        XDTarjetaResultados(),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(25.0, 0.0, 95.0, 96.0),
+                    size: Size(144.0, 144.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinTop: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Image-Resultado' (shape)
+                        Container(
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        image: DecorationImage(
+                          image: const AssetImage(''),
+                          fit: BoxFit.cover,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x3d000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(32.0, 101.0, 67.0, 19.0),
+                    size: Size(144.0, 144.0),
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Producto' (text)
+                        Text(
+                      'Le Burguer',
+                      style: TextStyle(
+                        fontFamily: 'Segoe UI',
+                        fontSize: 14,
+                        color: const Color(0xff707070),
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(8.0, 124.0, 49.0, 15.0),
+                    size: Size(144.0, 144.0),
+                    pinLeft: true,
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Ubicación' (text)
+                        Text(
+                      'Torreón C.',
+                      style: TextStyle(
+                        fontFamily: 'Segoe UI',
+                        fontSize: 11,
+                        color: const Color(0xff707070),
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(112.0, 124.0, 16.0, 16.0),
+                    size: Size(144.0, 144.0),
+                    pinRight: true,
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Rating' (shape)
+                        Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: const AssetImage(''),
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Pinned.fromSize(

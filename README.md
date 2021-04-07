@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # food_delivery
 
 A new Flutter application.
+=======
+# f_d
+
+A new Flutter project.
+>>>>>>> 70edecdcc45b518d964e57895caacad4e5974115
 
 ## Getting Started
 

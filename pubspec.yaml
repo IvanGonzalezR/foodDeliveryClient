@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 name: food_delivery
 description: A new Flutter application.
+=======
+name: f_d
+description: A new Flutter project.
+>>>>>>> 70edecdcc45b518d964e57895caacad4e5974115
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -23,18 +28,29 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 70edecdcc45b518d964e57895caacad4e5974115
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+<<<<<<< HEAD
+=======
+
+>>>>>>> 70edecdcc45b518d964e57895caacad4e5974115
   adobe_xd: ^1.1.0+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 70edecdcc45b518d964e57895caacad4e5974115
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
