@@ -23,16 +23,19 @@ class XDInicioSesion extends StatelessWidget {
               initialIndex: 1,
                 length: 2,
                 child: Scaffold(
-                  appBar: AppBar(
-                  title: const Text(''),
+                appBar: AppBar(
+                backgroundColor: Color(0xffe25c4a),
+                
+                  title: const Text('Food Delivery'),
                   bottom: const TabBar(
+                   
                     tabs: <Widget>[
                       Tab(
-                        icon: Icon(Icons.login_outlined),
+                        child: Text('Inicia Sesión'),
                       ),
-                  Tab(
-                    icon: Icon(Icons.person_add_outlined),
-                  ),
+                       Tab(
+                        child: Text('Registrarse'),
+                      ),
                 ],
               ),
             ),
