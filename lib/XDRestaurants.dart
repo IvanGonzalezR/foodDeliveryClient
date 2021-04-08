@@ -687,7 +687,7 @@ class XDRestaurants extends StatelessWidget {
                   transition: LinkTransition.Fade,
                   ease: Curves.easeOut,
                   duration: 0.3,
-                  pageBuilder: () => XDPerfil(),
+                  pageBuilder: () => XDPerfil("assets/images/people3.jpg", "Misael", "example@gmail.com", "8714555556"),
                 ),
               ],
               child: Container(

@@ -1,556 +1,567 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:food_delivery/bank_card_list.dart';
 import './XDHeaderMenuBg.dart';
 import './XDRestaurants.dart';
 import 'package:adobe_xd/page_link.dart';
 import './XDActualizarPerfil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'arrow_back.dart';
+import 'my_flutter_app_icons.dart';
 
 class XDPerfil extends StatelessWidget {
-  XDPerfil({
-    Key key,
-  }) : super(key: key);
+  String pathImage = "assets/images/people3.jpg";
+  String nombre = "Usuario";
+  String correo = "example@gmail.com";
+  String telefono = "8712397765";
+  XDPerfil(this.pathImage, this.nombre, this.correo, this.telefono);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xffefefef),
-      body: Stack(
-        children: <Widget>[
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(-69.0, 0.0, 552.0, 173.0),
-            size: Size(414.0, 736.0),
-            pinLeft: true,
-            pinRight: true,
-            pinTop: true,
-            fixedHeight: true,
-            child:
-                // Adobe XD layer: 'Header' (group)
-                Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 552.0, 173.0),
-                  size: Size(552.0, 173.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child:
-                      // Adobe XD layer: 'Header-Menu-Bg' (component)
-                      XDHeaderMenuBg(),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(135.0, 45.0, 88.0, 27.0),
-                  size: Size(552.0, 173.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'Regresar',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 22,
-                      color: const Color(0xffffffff),
-                      fontWeight: FontWeight.w700,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(95.0, 45.0, 32.0, 32.0),
-                  size: Size(552.0, 173.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child:
-                      // Adobe XD layer: 'icons8_left_3_50px' (shape)
-                      PageLink(
-                    links: [
-                      PageLinkInfo(
-                        transition: LinkTransition.Fade,
-                        ease: Curves.easeOut,
-                        duration: 0.3,
-                        pageBuilder: () => XDRestaurants(),
-                      ),
-                    ],
-                    child: Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: const AssetImage(''),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+
+    final avatar = Container(
+      alignment: Alignment.center,
+      margin: EdgeInsets.only(top: 110.0),
+      child: CircleAvatar(backgroundColor: Colors.white, radius: 70.0,
+          foregroundImage: AssetImage(pathImage)),
+    );
+    final header = Stack(
+        children: [
+          Container(
+            margin: EdgeInsets.only(bottom: 40.0),
+            height: 220.0,
+            width: 700.0,
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage("assets/widgets/headerOrange.png"),fit: BoxFit.cover),
+            ),
+          ),
+          ArrowBack(XDRestaurants(), false),
+          avatar
+        ]
+    );
+
+    final bienvenida = Container(
+      width: MediaQuery.of(context).size.width/1.7,
+      height: 95.0,
+      padding: EdgeInsets.all(8.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30.0),
+        color: Color(0xffe2e2e2)
+      ),
+      child: Text(
+        ("Bienvenido, \n"+nombre+"..."),
+        overflow: TextOverflow.ellipsis,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontFamily: "Lato",
+          fontSize: 28.0,
+        ),
+      ),
+    );
+
+    final datos = Container(
+      width: MediaQuery.of(context).size.width/1.3,
+      height: MediaQuery.of(context).size.height/2.1,
+      margin: EdgeInsets.only(top: 50.0),
+      padding: EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30.0),
+          color: Color(0xffe2e2e2)
+      ),
+      child: Column(
+        children: [
+          Text("Correo", style: TextStyle(
+            fontSize: 14.0,
+            fontFamily: "Lato",
+            fontWeight: FontWeight.bold
+          ),),
+          Text(correo, style: TextStyle(
+              fontSize: 14.0,
+              fontFamily: "Lato",
+              height: 1.5
+          ),),
+          Text("Telefono", style: TextStyle(
+              fontSize: 14.0,
+              fontFamily: "Lato",
+              fontWeight: FontWeight.bold,
+              height: 2.0
+          ),),
+          Text(telefono, style: TextStyle(
+              fontSize: 14.0,
+              fontFamily: "Lato",
+              height: 1.5
+          ),),
+          BankCardList(),
+          Icon(MyFlutterApp.arrows_alt_h, size: 30.0,),
+          InkWell(
+            onTap: (){ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Abrir ventana Informacion")));},
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Actualizar información ",
+                style: TextStyle(
+                  height: 2,
+                  decoration: TextDecoration.underline,
+                  fontFamily: "Lato",
+                  fontSize: 14.0,
+                  color: Color(0xff5EAAA8)
+                ),),
+                Icon(Icons.edit, color: Color(0xff5EAAA8),)
               ],
             ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(140.0, 81.0, 134.0, 134.0),
-            size: Size(414.0, 736.0),
-            pinTop: true,
-            fixedWidth: true,
-            fixedHeight: true,
-            child:
-                // Adobe XD layer: 'NoPath - copia' (shape)
-                Container(
-              decoration: BoxDecoration(
-                borderRadius:
-                    BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                image: DecorationImage(
-                  image: const AssetImage(''),
-                  fit: BoxFit.cover,
-                ),
-                border: Border.all(width: 0.5, color: const Color(0xff707070)),
-              ),
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(240.0, 616.0, 80.0, 80.0),
-            size: Size(414.0, 736.0),
-            pinBottom: true,
-            fixedWidth: true,
-            fixedHeight: true,
-            child:
-                // Adobe XD layer: 'icons8_google_80px' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(104.0, 616.0, 80.0, 80.0),
-            size: Size(414.0, 736.0),
-            pinBottom: true,
-            fixedWidth: true,
-            fixedHeight: true,
-            child:
-                // Adobe XD layer: 'icons8_facebook_80px' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(32.0, 448.0, 0.0, 0.0),
-            size: Size(414.0, 736.0),
-            pinLeft: true,
-            fixedWidth: true,
-            fixedHeight: true,
-            child: Text(
-              '',
-              style: TextStyle(
-                fontFamily: 'Segoe UI',
-                fontSize: 20,
-                color: const Color(0xff707070),
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(93.0, 578.0, 228.0, 19.0),
-            size: Size(414.0, 736.0),
-            fixedWidth: true,
-            fixedHeight: true,
-            child: Text(
-              'Puedes enlazar tu cuenta utilizando...',
-              style: TextStyle(
-                fontFamily: 'Segoe UI',
-                fontSize: 14,
-                color: const Color(0xff707070),
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(181.0, 290.0, 0.0, 30.0),
-            size: Size(414.0, 736.0),
-            fixedWidth: true,
-            fixedHeight: true,
-            child: Text(
-              '\n',
-              style: TextStyle(
-                fontFamily: 'Lato',
-                fontSize: 12,
-                color: const Color(0x8a292929),
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(55.0, 240.0, 304.0, 320.0),
-            size: Size(414.0, 736.0),
-            pinLeft: true,
-            pinRight: true,
-            fixedHeight: true,
-            child:
-                // Adobe XD layer: 'Información_Cliente' (group)
-                Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 304.0, 320.0),
-                  size: Size(304.0, 320.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child: SvgPicture.string(
-                    _svg_hioewy,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(123.0, 88.0, 62.0, 17.0),
-                  size: Size(304.0, 320.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'Correo',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 14,
-                      color: const Color(0xff000000),
-                      letterSpacing: 0.7000000000000001,
-                      fontWeight: FontWeight.w900,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(116.0, 146.0, 77.0, 17.0),
-                  size: Size(304.0, 320.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'Telefono',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 14,
-                      color: const Color(0xff000000),
-                      letterSpacing: 0.7000000000000001,
-                      fontWeight: FontWeight.w900,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(91.0, 112.0, 122.0, 17.0),
-                  size: Size(304.0, 320.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'correo@correo.com',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 14,
-                      color: const Color(0xff000000),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(112.0, 180.0, 81.0, 17.0),
-                  size: Size(304.0, 320.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    '8712000000',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 14,
-                      color: const Color(0xff000000),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(83.0, 293.0, 139.0, 17.0),
-                  size: Size(304.0, 320.0),
-                  pinBottom: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: PageLink(
-                    links: [
-                      PageLinkInfo(
-                        transition: LinkTransition.Fade,
-                        ease: Curves.easeOut,
-                        duration: 0.3,
-                        pageBuilder: () => XDActualizarPerfil(),
-                      ),
-                    ],
-                    child: Text(
-                      'Actualizar información',
-                      style: TextStyle(
-                        fontFamily: 'Lato',
-                        fontSize: 14,
-                        color: const Color(0xff5eaaa8),
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(80.0, 8.0, 144.0, 68.0),
-                  size: Size(304.0, 320.0),
-                  pinTop: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'Bienvenido,\n Misael...',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 28,
-                      color: const Color(0xff000000),
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(201.0, 510.0, 13.0, 13.0),
-            size: Size(414.0, 736.0),
-            fixedWidth: true,
-            fixedHeight: true,
-            child:
-                // Adobe XD layer: 'swipe_image' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(57.0, 459.0, 114.0, 48.0),
-            size: Size(414.0, 736.0),
-            pinLeft: true,
-            fixedWidth: true,
-            fixedHeight: true,
-            child:
-                // Adobe XD layer: 'Tarjeta' (group)
-                Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 114.0, 48.0),
-                  size: Size(114.0, 48.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child: SvgPicture.string(
-                    _svg_b0vdm9,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(13.0, 24.0, 85.0, 13.0),
-                  size: Size(114.0, 48.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  fixedHeight: true,
-                  child: Text(
-                    '**** **** **** 0110',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 11,
-                      color: const Color(0xffffffff),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(13.0, 3.0, 50.0, 17.0),
-                  size: Size(114.0, 48.0),
-                  pinLeft: true,
-                  pinTop: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'BANCO',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 14,
-                      color: const Color(0xffffffff),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(184.0, 459.0, 124.0, 48.0),
-            size: Size(414.0, 736.0),
-            fixedWidth: true,
-            fixedHeight: true,
-            child:
-                // Adobe XD layer: 'Tarjeta' (group)
-                Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(10.0, 0.0, 114.0, 48.0),
-                  size: Size(124.0, 48.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child: SvgPicture.string(
-                    _svg_cftylz,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 114.0, 48.0),
-                  size: Size(124.0, 48.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child: SvgPicture.string(
-                    _svg_vzvtw2,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(23.0, 24.0, 85.0, 13.0),
-                  size: Size(124.0, 48.0),
-                  pinRight: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    '**** **** **** 0011',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 11,
-                      color: const Color(0xffffffff),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(23.0, 3.0, 50.0, 17.0),
-                  size: Size(124.0, 48.0),
-                  pinTop: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'BANCO',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 14,
-                      color: const Color(0xffffffff),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(323.0, 459.0, 34.0, 48.0),
-            size: Size(414.0, 736.0),
-            pinRight: true,
-            fixedWidth: true,
-            fixedHeight: true,
-            child:
-                // Adobe XD layer: 'Tarjeta' (group)
-                Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(8.0, 0.0, 26.0, 48.0),
-                  size: Size(34.0, 48.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child: SvgPicture.string(
-                    _svg_dkypmi,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 26.0, 48.0),
-                  size: Size(34.0, 48.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child: SvgPicture.string(
-                    _svg_85oej1,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(21.0, 24.0, 9.0, 13.0),
-                  size: Size(34.0, 48.0),
-                  pinRight: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    '**',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 11,
-                      color: const Color(0xffffffff),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(21.0, 3.0, 9.0, 17.0),
-                  size: Size(34.0, 48.0),
-                  pinRight: true,
-                  pinTop: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'B',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 14,
-                      color: const Color(0xffffffff),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(280.0, 530.0, 20.0, 20.0),
-            size: Size(414.0, 736.0),
-            fixedWidth: true,
-            fixedHeight: true,
-            child:
-                // Adobe XD layer: 'icons8_edit_120px_1' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
+          )
         ],
       ),
     );
+    return Scaffold(
+      backgroundColor: const Color(0xffefefef),
+      body: Column(
+          children: [
+            header,
+            Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                datos,
+                bienvenida,
+              ],
+            )
+          ]
+        ),
+    );
+    // return Scaffold(
+    //   backgroundColor: const Color(0xffefefef),
+    //   body: Stack(
+    //     children: [
+    //       Pinned.fromSize(
+    //         bounds: Rect.fromLTWH(-69.0, 0.0, 552.0, 173.0),
+    //         size: Size(414.0, 736.0),
+    //         pinLeft: true,
+    //         pinRight: true,
+    //         pinTop: true,
+    //         fixedHeight: true,
+    //         child:
+    //             // Adobe XD layer: 'Header' (group)
+    //             Stack(
+    //               alignment: Alignment(-0.6,-0.4),
+    //           children:[
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(0.0, 0.0, 552.0, 173.0),
+    //               size: Size(552.0, 173.0),
+    //               pinLeft: true,
+    //               pinRight: true,
+    //               pinTop: true,
+    //               pinBottom: true,
+    //               child:
+    //                   // Adobe XD layer: 'Header-Menu-Bg' (component)
+    //                   XDHeaderMenuBg(),
+    //             ),
+    //             InkWell(
+    //               child: Pinned.fromSize(
+    //                 bounds: Rect.fromLTWH(85.0, 45.0, 32.0, 32.0),
+    //                 size: Size(552.0, 173.0),
+    //                 fixedWidth: true,
+    //                 fixedHeight: true,
+    //                 child:
+    //                     // Adobe XD layer: 'icons8_left_3_50px' (shape)
+    //                     PageLink(
+    //                   links: [
+    //                     PageLinkInfo(
+    //                       transition: LinkTransition.PushDown,
+    //                       ease: Curves.easeOut,
+    //                       duration: 1.0,
+    //                       pageBuilder: () => XDRestaurants(),
+    //                     ),
+    //                   ],
+    //                   child: ArrowBack()
+    //                 ),
+    //               ),
+    //             ),
+    //           ],
+    //         ),
+    //       ),
+    //
+    //
+    //       Pinned.fromSize(
+    //         bounds: Rect.fromLTWH(140.0, 81.0, 134.0, 134.0),
+    //         size: Size(414.0, 736.0),
+    //         pinTop: true,
+    //         fixedWidth: true,
+    //         fixedHeight: true,
+    //         child:
+    //             // Adobe XD layer: 'NoPath - copia' (shape)
+    //             Container(
+    //           decoration: BoxDecoration(
+    //             borderRadius:
+    //                 BorderRadius.all(Radius.elliptical(360.0, 360.0)),
+    //             image: DecorationImage(
+    //               image: const AssetImage('assets/images/people3.jpg'),
+    //               fit: BoxFit.cover,
+    //             ),
+    //             border: Border.all(width: 0.5, color: const Color(0xff707070)),
+    //           ),
+    //         ),
+    //       ),
+    //       Pinned.fromSize(
+    //         bounds: Rect.fromLTWH(240.0, 616.0, 80.0, 80.0),
+    //         size: Size(414.0, 736.0),
+    //         pinBottom: true,
+    //         fixedWidth: true,
+    //         fixedHeight: true,
+    //         child:
+    //             // Adobe XD layer: 'icons8_google_80px' (shape)
+    //             Container(
+    //           decoration: BoxDecoration(
+    //             image: DecorationImage(
+    //               image: const AssetImage('assets/images/people3.jpg'),
+    //               fit: BoxFit.fill,
+    //             ),
+    //           ),
+    //         ),
+    //       ),
+    //       Pinned.fromSize(
+    //         bounds: Rect.fromLTWH(32.0, 448.0, 0.0, 0.0),
+    //         size: Size(414.0, 736.0),
+    //         pinLeft: true,
+    //         fixedWidth: true,
+    //         fixedHeight: true,
+    //         child: Text(
+    //           '',
+    //           style: TextStyle(
+    //             fontFamily: 'Segoe UI',
+    //             fontSize: 20,
+    //             color: const Color(0xff707070),
+    //           ),
+    //           textAlign: TextAlign.left,
+    //         ),
+    //       ),
+    //       Pinned.fromSize(
+    //         bounds: Rect.fromLTWH(93.0, 578.0, 228.0, 19.0),
+    //         size: Size(414.0, 736.0),
+    //         fixedWidth: true,
+    //         fixedHeight: true,
+    //         child: Text(
+    //           'Puedes enlazar tu cuenta utilizando...',
+    //           style: TextStyle(
+    //             fontFamily: 'Segoe UI',
+    //             fontSize: 14,
+    //             color: const Color(0xff707070),
+    //           ),
+    //           textAlign: TextAlign.left,
+    //         ),
+    //       ),
+    //       Pinned.fromSize(
+    //         bounds: Rect.fromLTWH(181.0, 290.0, 0.0, 30.0),
+    //         size: Size(414.0, 736.0),
+    //         fixedWidth: true,
+    //         fixedHeight: true,
+    //         child: Text(
+    //           '\n',
+    //           style: TextStyle(
+    //             fontFamily: 'Lato',
+    //             fontSize: 12,
+    //             color: const Color(0x8a292929),
+    //           ),
+    //           textAlign: TextAlign.left,
+    //         ),
+    //       ),
+    //       Pinned.fromSize(
+    //         bounds: Rect.fromLTWH(55.0, 240.0, 304.0, 320.0),
+    //         size: Size(414.0, 736.0),
+    //         pinLeft: true,
+    //         pinRight: true,
+    //         fixedHeight: true,
+    //         child:
+    //             // Adobe XD layer: 'Información_Cliente' (group)
+    //             Stack(
+    //           children: <Widget>[
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(0.0, 0.0, 304.0, 320.0),
+    //               size: Size(304.0, 320.0),
+    //               pinLeft: true,
+    //               pinRight: true,
+    //               pinTop: true,
+    //               pinBottom: true,
+    //               child: SvgPicture.string(
+    //                 _svg_hioewy,
+    //                 allowDrawingOutsideViewBox: true,
+    //                 fit: BoxFit.fill,
+    //               ),
+    //             ),
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(123.0, 88.0, 62.0, 17.0),
+    //               size: Size(304.0, 320.0),
+    //               fixedWidth: true,
+    //               fixedHeight: true,
+    //               child: Text(
+    //                 'Correo',
+    //                 style: TextStyle(
+    //                   fontFamily: 'Lato',
+    //                   fontSize: 14,
+    //                   color: const Color(0xff000000),
+    //                   letterSpacing: 0.7000000000000001,
+    //                   fontWeight: FontWeight.w900,
+    //                 ),
+    //                 textAlign: TextAlign.left,
+    //               ),
+    //             ),
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(116.0, 146.0, 77.0, 17.0),
+    //               size: Size(304.0, 320.0),
+    //               fixedWidth: true,
+    //               fixedHeight: true,
+    //               child: Text(
+    //                 'Telefono',
+    //                 style: TextStyle(
+    //                   fontFamily: 'Lato',
+    //                   fontSize: 14,
+    //                   color: const Color(0xff000000),
+    //                   letterSpacing: 0.7000000000000001,
+    //                   fontWeight: FontWeight.w900,
+    //                 ),
+    //                 textAlign: TextAlign.left,
+    //               ),
+    //             ),
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(91.0, 112.0, 122.0, 17.0),
+    //               size: Size(304.0, 320.0),
+    //               fixedWidth: true,
+    //               fixedHeight: true,
+    //               child: Text(
+    //                 'correo@correo.com',
+    //                 style: TextStyle(
+    //                   fontFamily: 'Lato',
+    //                   fontSize: 14,
+    //                   color: const Color(0xff000000),
+    //                 ),
+    //                 textAlign: TextAlign.left,
+    //               ),
+    //             ),
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(112.0, 180.0, 81.0, 17.0),
+    //               size: Size(304.0, 320.0),
+    //               fixedWidth: true,
+    //               fixedHeight: true,
+    //               child: Text(
+    //                 '8712000000',
+    //                 style: TextStyle(
+    //                   fontFamily: 'Lato',
+    //                   fontSize: 14,
+    //                   color: const Color(0xff000000),
+    //                 ),
+    //                 textAlign: TextAlign.left,
+    //               ),
+    //             ),
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(83.0, 293.0, 139.0, 17.0),
+    //               size: Size(304.0, 320.0),
+    //               pinBottom: true,
+    //               fixedWidth: true,
+    //               fixedHeight: true,
+    //               child: PageLink(
+    //                 links: [
+    //                   PageLinkInfo(
+    //                     transition: LinkTransition.Fade,
+    //                     ease: Curves.easeOut,
+    //                     duration: 0.3,
+    //                     pageBuilder: () => XDActualizarPerfil(),
+    //                   ),
+    //                 ],
+    //                 child: Text(
+    //                   'Actualizar información',
+    //                   style: TextStyle(
+    //                     fontFamily: 'Lato',
+    //                     fontSize: 14,
+    //                     color: const Color(0xff5eaaa8),
+    //                   ),
+    //                   textAlign: TextAlign.left,
+    //                 ),
+    //               ),
+    //             ),
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(80.0, 8.0, 144.0, 68.0),
+    //               size: Size(304.0, 320.0),
+    //               pinTop: true,
+    //               fixedWidth: true,
+    //               fixedHeight: true,
+    //               child: Text(
+    //                 'Bienvenido,\n Misael...',
+    //                 style: TextStyle(
+    //                   fontFamily: 'Lato',
+    //                   fontSize: 28,
+    //                   color: const Color(0xff000000),
+    //                 ),
+    //                 textAlign: TextAlign.center,
+    //               ),
+    //             ),
+    //           ],
+    //         ),
+    //       ),
+    //       Pinned.fromSize(
+    //         bounds: Rect.fromLTWH(201.0, 510.0, 13.0, 13.0),
+    //         size: Size(414.0, 736.0),
+    //         fixedWidth: true,
+    //         fixedHeight: true,
+    //         child:
+    //             // Adobe XD layer: 'swipe_image' (shape)
+    //             Container(
+    //           decoration: BoxDecoration(
+    //             image: DecorationImage(
+    //               image: const AssetImage(''),
+    //               fit: BoxFit.fill,
+    //             ),
+    //           ),
+    //         ),
+    //       ),
+    //       Pinned.fromSize(
+    //         bounds: Rect.fromLTWH(57.0, 459.0, 114.0, 48.0),
+    //         size: Size(414.0, 736.0),
+    //         pinLeft: true,
+    //         fixedWidth: true,
+    //         fixedHeight: true,
+    //         child:
+    //             // Adobe XD layer: 'Tarjeta' (group)
+    //             Stack(
+    //           children: <Widget>[
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(0.0, 0.0, 114.0, 48.0),
+    //               size: Size(114.0, 48.0),
+    //               pinLeft: true,
+    //               pinRight: true,
+    //               pinTop: true,
+    //               pinBottom: true,
+    //               child: SvgPicture.string(
+    //                 _svg_b0vdm9,
+    //                 allowDrawingOutsideViewBox: true,
+    //                 fit: BoxFit.fill,
+    //               ),
+    //             ),
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(13.0, 24.0, 85.0, 13.0),
+    //               size: Size(114.0, 48.0),
+    //               pinLeft: true,
+    //               pinRight: true,
+    //               fixedHeight: true,
+    //               child: Text(
+    //                 '**** **** **** 0110',
+    //                 style: TextStyle(
+    //                   fontFamily: 'Lato',
+    //                   fontSize: 11,
+    //                   color: const Color(0xffffffff),
+    //                 ),
+    //                 textAlign: TextAlign.left,
+    //               ),
+    //             ),
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(13.0, 3.0, 50.0, 17.0),
+    //               size: Size(114.0, 48.0),
+    //               pinLeft: true,
+    //               pinTop: true,
+    //               fixedWidth: true,
+    //               fixedHeight: true,
+    //               child: Text(
+    //                 'BANCO',
+    //                 style: TextStyle(
+    //                   fontFamily: 'Lato',
+    //                   fontSize: 14,
+    //                   color: const Color(0xffffffff),
+    //                 ),
+    //                 textAlign: TextAlign.left,
+    //               ),
+    //             ),
+    //           ],
+    //         ),
+    //       ),
+    //       Pinned.fromSize(
+    //         bounds: Rect.fromLTWH(184.0, 459.0, 124.0, 48.0),
+    //         size: Size(414.0, 736.0),
+    //         fixedWidth: true,
+    //         fixedHeight: true,
+    //         child:
+    //             // Adobe XD layer: 'Tarjeta' (group)
+    //             Stack(
+    //           children: <Widget>[
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(10.0, 0.0, 114.0, 48.0),
+    //               size: Size(124.0, 48.0),
+    //               pinLeft: true,
+    //               pinRight: true,
+    //               pinTop: true,
+    //               pinBottom: true,
+    //               child: SvgPicture.string(
+    //                 _svg_cftylz,
+    //                 allowDrawingOutsideViewBox: true,
+    //                 fit: BoxFit.fill,
+    //               ),
+    //             ),
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(0.0, 0.0, 114.0, 48.0),
+    //               size: Size(124.0, 48.0),
+    //               pinLeft: true,
+    //               pinRight: true,
+    //               pinTop: true,
+    //               pinBottom: true,
+    //               child: SvgPicture.string(
+    //                 _svg_vzvtw2,
+    //                 allowDrawingOutsideViewBox: true,
+    //                 fit: BoxFit.fill,
+    //               ),
+    //             ),
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(23.0, 24.0, 85.0, 13.0),
+    //               size: Size(124.0, 48.0),
+    //               pinRight: true,
+    //               fixedWidth: true,
+    //               fixedHeight: true,
+    //               child: Text(
+    //                 '**** **** **** 0011',
+    //                 style: TextStyle(
+    //                   fontFamily: 'Lato',
+    //                   fontSize: 11,
+    //                   color: const Color(0xffffffff),
+    //                 ),
+    //                 textAlign: TextAlign.left,
+    //               ),
+    //             ),
+    //             Pinned.fromSize(
+    //               bounds: Rect.fromLTWH(23.0, 3.0, 50.0, 17.0),
+    //               size: Size(124.0, 48.0),
+    //               pinTop: true,
+    //               fixedWidth: true,
+    //               fixedHeight: true,
+    //               child: Text(
+    //                 'BANCO',
+    //                 style: TextStyle(
+    //                   fontFamily: 'Lato',
+    //                   fontSize: 14,
+    //                   color: const Color(0xffffffff),
+    //                 ),
+    //                 textAlign: TextAlign.left,
+    //               ),
+    //             ),
+    //           ],
+    //         ),
+    //       ),
+    //       //
+    //       Pinned.fromSize(
+    //         bounds: Rect.fromLTWH(280.0, 530.0, 20.0, 20.0),
+    //         size: Size(414.0, 736.0),
+    //         fixedWidth: true,
+    //         fixedHeight: true,
+    //         child:
+    //             // Adobe XD layer: 'icons8_edit_120px_1' (shape)
+    //             Container(
+    //           decoration: BoxDecoration(
+    //             image: DecorationImage(
+    //               image: const AssetImage('assets/images/people3.jpg'),
+    //               fit: BoxFit.fill,
+    //             ),
+    //           ),
+    //         ),
+    //       ),
+    //     ],
+    //   ),
+    // );
   }
 }
 
