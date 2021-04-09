@@ -3,9 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:food_delivery/XDInicioSesion.dart';
 import 'package:flutter/services.dart';
 import 'package:food_delivery/XDPerfil.dart';
+import 'package:food_delivery/XDRestaurants.dart';
 
-void main() {
-  runApp(MyApp());
+Future<void> main() async{
+  runApp(await MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: XDPerfil("assets/images/people3.jpg", "Jose Misael", "example@gmail.com", "8714555556"),
+      // home: XDPerfil("assets/images/people3.jpg", "Jose Misael", "example@gmail.com", "8714555556"),
+      home: XDRestaurants(),
     );
   }
 }

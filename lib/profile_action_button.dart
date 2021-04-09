@@ -1,17 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ArrowBack extends StatefulWidget {
+class ProfileActionButton extends StatefulWidget {
   Widget screens;
   bool maintain = false;
-  ArrowBack(this.screens, this.maintain);
-
+  ProfileActionButton(this.screens, this.maintain);
   @override
-  _ArrowBackState createState() => _ArrowBackState();
+  _ProfileActionButtonState createState() => _ProfileActionButtonState();
 }
 
-class _ArrowBackState extends State<ArrowBack> {
-  @override
+class _ProfileActionButtonState extends State<ProfileActionButton> {
+
   void onPressedFav(){
     if(Navigator.canPop(context)){
       Navigator.pop(
@@ -28,19 +27,16 @@ class _ArrowBackState extends State<ArrowBack> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/35, left: MediaQuery.of(context).size.width/45),
       child: FloatingActionButton(
         backgroundColor: Colors.transparent,
-        splashColor: Color(0xFFFFffff),
+        splashColor: Color(0xCEFFFFFF),
         highlightElevation: 0.0,
         elevation: 0,
         onPressed: onPressedFav,
-        child: Icon(Icons.arrow_back_ios_rounded, size: 32),
+        child: Icon(Icons.person, size: 32),
       ),
     );
   }
 }
-
-

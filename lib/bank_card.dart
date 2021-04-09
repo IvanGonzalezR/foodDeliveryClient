@@ -13,7 +13,8 @@ class _BankCardState extends State<BankCard> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 15.0),
-      margin: EdgeInsets.only(right: 20.0),
+
+      margin: EdgeInsets.only(right: MediaQuery.of(context).size.width/14),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0), color: Color(0xffAA9AFF).withOpacity(0.4)),
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0), color: Color(0xffAA9AFF)),
