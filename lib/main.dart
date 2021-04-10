@@ -4,6 +4,8 @@ import 'package:food_delivery/XDInicioSesion.dart';
 import 'package:flutter/services.dart';
 import 'package:food_delivery/XDPerfil.dart';
 import 'package:food_delivery/XDRestaurants.dart';
+import 'package:food_delivery/sign_up.dart';
+import 'package:food_delivery/log_in.dart';
 
 Future<void> main() async{
   runApp(await MyApp());
@@ -12,6 +14,7 @@ Future<void> main() async{
 class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: XDPerfil("assets/images/people3.jpg", "Jose Misael", "example@gmail.com", "8714555556"),
-      home: XDRestaurants(),
+      home: XDInicioSesion(),
     );
   }
 }
