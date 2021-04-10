@@ -1,12 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:food_delivery/XDInicioSesion.dart';
 
+import 'package:flutter/material.dart';import 'package:food_delivery/XDInicioSesion.dart';
+import 'package:food_delivery/sign_up.dart';
+import 'package:food_delivery/log_in.dart';
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
