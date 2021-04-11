@@ -36,7 +36,6 @@ class XDRestaurants extends StatelessWidget {
                   //Widgets de navegación, Perfil y Carrito
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                     children: [
                       ProfileActionButton(XDPerfil("assets/images/people3.jpg", "Jose Misael", "example@gmail.com", "8714555556"), false),
                       CarritoActionButton(XDCarrito(), false)

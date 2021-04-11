@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/XDRestaurant.dart';
 
 class RestaurantCard extends StatefulWidget {
   String nombre_restaurant = "La Taquiza, Tacos & Drinks";
@@ -59,11 +61,21 @@ class _RestaurantCardState extends State<RestaurantCard> {
 
     return InkWell(
       onTap: (){
-        Scaffold.of(context).showSnackBar(
-            SnackBar(
-              content: Text("Agregaste a tus Favoritos"),
-            )
-        );
+        if(Navigator.canPop(context)){
+          Navigator.pop(
+              context,
+              CupertinoPageRoute(builder: (context) => XDRestaurant("La Taquiza, Tacos & Drinks", 25.00, 4.5,
+                  "assets/images/restaurant1.png", "assets/images/restaurant1icon.jpg"),
+                  maintainState: true)
+          );
+        }else{
+          Navigator.push(
+              context,
+              CupertinoPageRoute(builder: (context) => XDRestaurant("La Taquiza, Tacos & Drinks", 25.00, 4.5,
+                  "assets/images/restaurant1.png", "assets/images/restaurant1icon.jpg"),
+                  maintainState: true)
+          );
+        }
       },
       child: Container(
         // height: MediaQuery.of(context).size.height/4,
