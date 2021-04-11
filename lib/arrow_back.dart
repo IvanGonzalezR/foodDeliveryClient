@@ -32,6 +32,7 @@ class _ArrowBackState extends State<ArrowBack> {
     return Container(
       margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/35, left: MediaQuery.of(context).size.width/45),
       child: FloatingActionButton(
+        heroTag: "btnArrow",
         backgroundColor: Colors.transparent,
         splashColor: Color(0xFFFFffff),
         highlightElevation: 0.0,

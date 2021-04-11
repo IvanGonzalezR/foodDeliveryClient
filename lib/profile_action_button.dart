@@ -30,6 +30,7 @@ class _ProfileActionButtonState extends State<ProfileActionButton> {
     return Container(
       margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/35, left: MediaQuery.of(context).size.width/45),
       child: FloatingActionButton(
+        heroTag: "btnPerfil",
         backgroundColor: Colors.transparent,
         splashColor: Color(0xCEFFFFFF),
         highlightElevation: 0.0,

@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:food_delivery/XDInicioSesion.dart';
-import 'package:flutter/services.dart';
 import 'package:food_delivery/XDPerfil.dart';
 import 'package:food_delivery/XDRestaurants.dart';
-import 'package:food_delivery/sign_up.dart';
-import 'package:food_delivery/log_in.dart';
 
 Future<void> main() async{
-  runApp(await MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -34,7 +31,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: XDPerfil("assets/images/people3.jpg", "Jose Misael", "example@gmail.com", "8714555556"),
-      home: XDInicioSesion(),
+      home: XDRestaurants(),
     );
   }
 }

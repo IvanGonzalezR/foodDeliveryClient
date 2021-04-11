@@ -123,13 +123,13 @@ class XDPerfil extends StatelessWidget {
                 avatar,
               ],
             ),
-            Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                datos,
-                bienvenida,
-              ],
-            )
+           Stack(
+                alignment: Alignment.topCenter,
+                children: [
+                  datos,
+                  bienvenida,
+                ],
+              ),
           ]
         ),
     );

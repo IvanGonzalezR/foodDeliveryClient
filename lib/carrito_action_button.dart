@@ -30,6 +30,7 @@ class _CarritoActionButton extends State<CarritoActionButton> {
     return Container(
       margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/35, right: MediaQuery.of(context).size.width/45),
       child: FloatingActionButton(
+        heroTag: "btnCarrito",
         backgroundColor: Colors.transparent,
         splashColor: Color(0xffFFFFFF),
         highlightElevation: 0.0,
