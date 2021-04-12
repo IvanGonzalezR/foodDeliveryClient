@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/XDRestaurants.dart';
 import 'package:food_delivery/arrow_back.dart';
 import 'package:food_delivery/bank_card_list.dart';
+import 'package:food_delivery/product_card.dart';
 
 class XDRestaurant extends StatelessWidget {
   String path_image_store;
@@ -18,8 +19,8 @@ class XDRestaurant extends StatelessWidget {
     final image = Stack(
       children: [
         Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height/4.1,
+          width: double.infinity,
+          height: double.infinity,
           padding: EdgeInsets.all(0.0),
           decoration: BoxDecoration(color: Colors.red),
           child: Image(
@@ -29,7 +30,7 @@ class XDRestaurant extends StatelessWidget {
         ),
 
             //Flecha de regreso
-        ArrowBack(XDRestaurants(), false),
+        // ArrowBack(XDRestaurants(), false, false),
       ],
     );
 
@@ -61,19 +62,25 @@ class XDRestaurant extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    costo_envio.toString(),
+                    "Costo de envío: "+costo_envio.toString()+"MXN",
                     style: TextStyle(
                         fontFamily: "Lato",
                         fontWeight: FontWeight.normal,
                         fontSize: 16.0
                     ),
-                  ),Text(
-                    puntuacion.toString(),
-                    style: TextStyle(
-                        fontFamily: "Lato",
-                        fontWeight: FontWeight.normal,
-                        fontSize: 16.0
-                    ),
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.star, size: 16.0,),
+                      Text(
+                        puntuacion.toString(),
+                        style: TextStyle(
+                            fontFamily: "Lato",
+                            fontWeight: FontWeight.normal,
+                            fontSize: 16.0
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -92,14 +99,63 @@ class XDRestaurant extends StatelessWidget {
     );
 
 
+    // return Scaffold(
+    //   backgroundColor: const Color(0xffefefef),
+    //   body: Column(
+    //     children: [
+    //       image,
+    //       info_tienda,
+    //     ],
+    //   )
+    // );
+
     return Scaffold(
       backgroundColor: const Color(0xffefefef),
-      body: Column(
-        children: [
-          image,
-          info_tienda,
+      body: CustomScrollView(
+        physics: ClampingScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Color(0xffE25C4A),
+            stretch: true,
+            expandedHeight: MediaQuery.of(context).size.height/4.1,
+            pinned: true,
+            title: Text(nombre_tienda, style: TextStyle(
+              fontFamily: "Lato",
+              fontSize: 22.0,
+              fontWeight: FontWeight.w400
+            ),),
+            flexibleSpace: FlexibleSpaceBar(
+              centerTitle: true,
+              background: Stack(
+                fit: StackFit.expand,
+                children: [
+                  image,
+                ],
+              ),
+              stretchModes: [
+                StretchMode.blurBackground,
+                StretchMode.zoomBackground,
+              ],
+            ),
+          ),
+          SliverList(delegate: SliverChildListDelegate([
+            info_tienda,
+            ProductCard("Muffin clásico", "Rico muffin con un toque "
+                "sabor vainilla con chispas de chocolate con mucho chocolate para degustar ", 19, "assets/images/muffin1.jpg"),
+            ProductCard("Muffin clásico", "Rico muffin con un toque "
+                "sabor vainilla con chispas de chocolate con mucho chocolate para degustar ", 15, "assets/images/muffin2.jpg"),
+            ProductCard("Muffin clásico", "Rico muffin con un toque "
+                "sabor vainilla con chispas de chocolate con mucho chocolate para degustar ", 19, "assets/images/muffin1.jpg"),
+            ProductCard("Muffin clásico", "Rico muffin con un toque "
+                "sabor vainilla con chispas de chocolate con mucho chocolate para degustar ", 15, "assets/images/muffin2.jpg"),
+            ProductCard("Muffin clásico", "Rico muffin con un toque "
+                "sabor vainilla con chispas de chocolate con mucho chocolate para degustar ", 15, "assets/images/muffin2.jpg"),
+            ProductCard("Muffin clásico", "Rico muffin con un toque "
+                "sabor vainilla con chispas de chocolate con mucho chocolate para degustar ", 15, "assets/images/muffin2.jpg"),
+          ]))
         ],
-      )
+      ),
     );
+
   }
 }

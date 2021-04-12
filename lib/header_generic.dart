@@ -18,7 +18,7 @@ class HeaderGeneric extends StatelessWidget {
               image: DecorationImage(image: AssetImage("assets/widgets/headerOrange.png"),fit: BoxFit.cover),
             ),
           ),
-          ArrowBack(screens, isMaintaining),
+          ArrowBack(screens, isMaintaining, false),
         ]
     );
   }

@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class ArrowBack extends StatefulWidget {
   Widget screens;
   bool maintain = false;
-  ArrowBack(this.screens, this.maintain);
+  bool persistant = false;
+  ArrowBack(this.screens, this.maintain, this.persistant);
 
   @override
   _ArrowBackState createState() => _ArrowBackState();
@@ -13,17 +14,9 @@ class ArrowBack extends StatefulWidget {
 class _ArrowBackState extends State<ArrowBack> {
   @override
   void onPressedFav(){
-    if(Navigator.canPop(context)){
-      Navigator.pop(
-          context,
-          CupertinoPageRoute(builder: (context) => widget.screens, maintainState: widget.maintain)
-      );
-    }else{
-      Navigator.push(
-          context,
-          CupertinoPageRoute(builder: (context) => widget.screens, maintainState: widget.maintain)
-      );
-    }
+      if(Navigator.canPop(context)){
+        Navigator.pop(context);
+      }
   }
 
   @override

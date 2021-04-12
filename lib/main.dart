@@ -30,8 +30,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: XDPerfil("assets/images/people3.jpg", "Jose Misael", "example@gmail.com", "8714555556"),
-      home: XDRestaurant("La Taquiza, Tacos & Drinks", 25.00, 4.5,
-          "assets/images/restaurant1.png", "assets/images/restaurant1icon.jpg"),
+      home: XDRestaurants()
+      // XDRestaurant("La Taquiza, Tacos & Drinks", 25.00, 4.5,
+      //     "assets/images/restaurant1.png", "assets/images/restaurant1icon.jpg"),
     );
   }
 }

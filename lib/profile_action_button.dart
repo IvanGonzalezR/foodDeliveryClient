@@ -12,17 +12,10 @@ class ProfileActionButton extends StatefulWidget {
 class _ProfileActionButtonState extends State<ProfileActionButton> {
 
   void onPressedFav(){
-    if(Navigator.canPop(context)){
-      Navigator.pop(
-          context,
-          CupertinoPageRoute(builder: (context) => widget.screens, maintainState: widget.maintain)
-      );
-    }else{
       Navigator.push(
           context,
           CupertinoPageRoute(builder: (context) => widget.screens, maintainState: widget.maintain)
       );
-    }
   }
 
   @override
