@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:food_delivery/XDBusqueda.dart';
 import 'package:food_delivery/XDInicioSesion.dart';
 import 'package:flutter/services.dart';
 import 'package:food_delivery/XDPerfil.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: XDPerfil("assets/images/people3.jpg", "Jose Misael", "example@gmail.com", "8714555556"),
-      home: XDInicioSesion(),
+      home: XDBusqueda(),
     );
   }
 }
