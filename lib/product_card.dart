@@ -1,12 +1,11 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:food_delivery/fab_add_cart.dart';
 
 class ProductCard extends StatefulWidget {
-  String nombre_producto;
-  String descripcion_producto;
-  double costo_producto;
-  String path_image;
+  final String nombre_producto;
+  final String descripcion_producto;
+  final double costo_producto;
+  final String path_image;
 
   ProductCard(this.nombre_producto, this.descripcion_producto, this.costo_producto, this.path_image);
 
@@ -60,6 +59,7 @@ class _ProductCardState extends State<ProductCard> {
     return InkWell(
       onTap: (){/*Ventana a mostrar*/},
       child: Stack(
+        alignment: Alignment.bottomRight,
         children: [
           Container(
             height: MediaQuery.of(context).size.height/5,
@@ -84,6 +84,9 @@ class _ProductCardState extends State<ProductCard> {
               ),
           ),
           //FAB
+          Container(
+              margin: EdgeInsets.only(right: MediaQuery.of(context).size.width/40, bottom: MediaQuery.of(context).size.width/40),
+              child: FabAddCart()),
         ],
       ),
     );

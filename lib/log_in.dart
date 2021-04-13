@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'XDRestaurants.dart' as restaurantes;
+
 class log_in extends StatefulWidget{
- @override
+
   static String tag = 'Login_page';
 
  _log_inState createState() => new _log_inState();
@@ -104,7 +104,7 @@ class _log_inState extends State<log_in>{
     );
 
 
-    final forgoLabel = FlatButton(
+    final forgoLabel = TextButton(
     
     child: Text('Contraseña', style: TextStyle(color: Colors.black),),
     onPressed: () {},

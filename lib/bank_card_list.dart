@@ -1,10 +1,9 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:food_delivery/bank_card.dart';
 
 class BankCardList extends StatefulWidget {
-  bool isHorizontal = true;
+  final bool isHorizontal;
   BankCardList(this.isHorizontal);
   @override
   _BankCardListState createState() => _BankCardListState();

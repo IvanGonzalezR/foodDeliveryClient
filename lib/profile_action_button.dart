@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProfileActionButton extends StatefulWidget {
-  Widget screens;
-  bool maintain = false;
+  final Widget screens;
+  final bool maintain;
   ProfileActionButton(this.screens, this.maintain);
   @override
   _ProfileActionButtonState createState() => _ProfileActionButtonState();

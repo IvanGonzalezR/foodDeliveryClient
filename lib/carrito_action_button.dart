@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CarritoActionButton extends StatefulWidget {
-  Widget screens;
-  bool maintain = false;
+  final Widget screens;
+  final bool maintain;
   CarritoActionButton(this.screens, this.maintain);
   @override
   _CarritoActionButton createState() => _CarritoActionButton();

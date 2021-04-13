@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BankCard extends StatefulWidget {
-  String nombreBanco = "Banco";
-  String numeros = "0110";
+  final String nombreBanco;
+  final String numeros;
   BankCard(this.nombreBanco, this.numeros);
   @override
   _BankCardState createState() => _BankCardState();

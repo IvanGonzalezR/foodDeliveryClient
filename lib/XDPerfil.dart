@@ -6,10 +6,10 @@ import './XDRestaurants.dart';
 import 'my_flutter_app_icons.dart';
 
 class XDPerfil extends StatelessWidget {
-  String pathImage = "assets/images/people3.jpg";
-  String nombre = "Usuario";
-  String correo = "example@gmail.com";
-  String telefono = "8712397765";
+  final String pathImage;
+  final String nombre;
+  final String correo;
+  final String telefono;
   XDPerfil(this.pathImage, this.nombre, this.correo, this.telefono);
 
   @override

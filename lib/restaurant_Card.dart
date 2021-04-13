@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/XDRestaurant.dart';
 
 class RestaurantCard extends StatefulWidget {
-  String nombre_restaurant = "La Taquiza, Tacos & Drinks";
-  String path_image_store;
-  String path_logo_store;
-  double puntuacion = 4.5;
-  double costo_envio = 0.00;
+  final String nombre_restaurant;
+  final String path_image_store;
+  final String path_logo_store;
+  final double puntuacion;
+  final double costo_envio;
   RestaurantCard(this.nombre_restaurant, this.puntuacion, this.costo_envio, this.path_image_store, this.path_logo_store);
   @override
   _RestaurantCardState createState() => _RestaurantCardState();
@@ -64,21 +64,12 @@ class _RestaurantCardState extends State<RestaurantCard> {
 
     return InkWell(
       onTap: (){
-        if(Navigator.canPop(context)){
-          Navigator.pop(
-              context,
-              CupertinoPageRoute(builder: (context) => XDRestaurant(widget.nombre_restaurant, widget.costo_envio, widget.puntuacion,
-                  "assets/images/restaurant1.png", "assets/images/restaurant1icon.jpg"),
-                  maintainState: true)
-          );
-        }else{
           Navigator.push(
               context,
-              CupertinoPageRoute(builder: (context) => XDRestaurant(widget.nombre_restaurant, widget.costo_envio, widget.puntuacion,
+              CupertinoPageRoute(builder: (context) => XDRestaurant(widget.nombre_restaurant, widget.puntuacion, widget.costo_envio,
                   widget.path_image_store, widget.path_logo_store),
                   maintainState: true)
           );
-        }
       },
       child: Container(
         // height: MediaQuery.of(context).size.height/4,

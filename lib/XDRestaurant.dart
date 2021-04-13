@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/XDRestaurants.dart';
-import 'package:food_delivery/arrow_back.dart';
 import 'package:food_delivery/bank_card_list.dart';
 import 'package:food_delivery/product_card.dart';
 
 class XDRestaurant extends StatelessWidget {
-  String path_image_store;
-  String path_logo_store;
-  String nombre_tienda;
-  double puntuacion;
-  double costo_envio;
+  final String path_image_store;
+  final String path_logo_store;
+  final String nombre_tienda;
+  final double puntuacion;
+  final double costo_envio;
 
-  XDRestaurant(this.nombre_tienda, this.puntuacion, this.costo_envio, this.path_image_store, this.path_logo_store,);
+  XDRestaurant(this.nombre_tienda,this.puntuacion,this.costo_envio, this.path_image_store, this.path_logo_store,);
 
   @override
   Widget build(BuildContext context) {

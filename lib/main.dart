@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:food_delivery/XDRestaurant.dart';
 import 'package:food_delivery/XDRestaurants.dart';
 
 Future<void> main() async{

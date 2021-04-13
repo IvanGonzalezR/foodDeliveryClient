@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'arrow_back.dart';
 
 class HeaderGeneric extends StatelessWidget {
-  Widget screens;
-  bool isMaintaining = false;
+  final Widget screens;
+  final bool isMaintaining;
   HeaderGeneric(this.screens, this.isMaintaining);
   @override
   Widget build(BuildContext context) {

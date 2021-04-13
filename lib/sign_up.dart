@@ -1,8 +1,6 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class sign_up extends StatefulWidget{
- @override
   static String tag = 'Login_page';
 
  _sign_upState createState() => new _sign_upState();
@@ -62,7 +60,7 @@ class _sign_upState extends State<sign_up>{
       )
     );
 
-    final forgoLabel = FlatButton(
+    final forgoLabel = TextButton(
     child: Text('Olvide mi contraseña', style: TextStyle(color: Colors.black),),
     onPressed: () {
 

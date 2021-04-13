@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ArrowBack extends StatefulWidget {
-  Widget screens;
-  bool maintain = false;
-  bool persistant = false;
+  final Widget screens;
+  final bool maintain;
+  final bool persistant;
   ArrowBack(this.screens, this.maintain, this.persistant);
 
   @override
@@ -12,7 +12,6 @@ class ArrowBack extends StatefulWidget {
 }
 
 class _ArrowBackState extends State<ArrowBack> {
-  @override
   void onPressedFav(){
       if(Navigator.canPop(context)){
         Navigator.pop(context);
