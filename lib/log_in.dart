@@ -85,22 +85,20 @@ class _log_inState extends State<log_in>{
 
     final loginButton = Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
-      child: Material(
-        borderRadius: BorderRadius.circular(30.0),
-        shadowColor: Color.fromRGBO(226, 92, 74, 1),
-        elevation: 5.0,
-        child: MaterialButton(
-            minWidth: 200.0,
-            height: 42.0,
 
-            //Abre la pestaña de restaurants
-            onPressed: (){
-           
-            },
-            color: Color.fromRGBO(226, 92, 74, 1),
-            child: Text('Log In', style: TextStyle(color: Colors.white)),
+        child: RaisedButton(
+          color: Colors.orangeAccent,
+          onPressed: () {},
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          child: Text(
+            "Iniciar Sesión",
+            style: TextStyle(
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w500,
+              ),
+            ),
         ),
-      ),
+      
     );
 
 

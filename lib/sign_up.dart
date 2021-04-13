@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class sign_up extends StatefulWidget{
   static String tag = 'Login_page';
@@ -85,6 +87,8 @@ class _sign_upState extends State<sign_up>{
             logoFb,
             SizedBox(height: 48.0),
             logoGm,
+            SizedBox(height: 48.0),
+            logoGoogle,
             SizedBox(height: 48.0),
             forgoLabel
           ],

@@ -49,24 +49,36 @@ class MyTabsState extends State<XDInicioSesion> with SingleTickerProviderStateMi
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-              'Bienvenido'
+          Padding(
+          padding:  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+          child: Center(
+            child: Text(
+              'Street Food Delivery.',
+              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 32),
+              textAlign: TextAlign.center,
             ),
-          Container(
-            padding: const EdgeInsets.all(20.0),
-            child: Image.asset('assets/logo.png', fit: BoxFit.contain,
-          height: 64,),
           )
+        ),
+        Padding(
+          padding:  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+          child: Center(
+            child: Image.asset('assets/logo.png', fit: BoxFit.contain,
+          height: 64,)
+          )
+        )
+          
         ],
       ),
       
       backgroundColor: Color.fromRGBO(226, 92, 74, 1),
       bottom: new TabBar(
-        
+                
           controller: controller,
           tabs: <Tab>[
      
+     //Seleccionar iniciar sesión o registrarse (Botones)
             new Tab(
+              
               child: Text(
               'Iniciar Sesión',
               style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
@@ -82,12 +94,15 @@ class MyTabsState extends State<XDInicioSesion> with SingleTickerProviderStateMi
               textAlign: TextAlign.center,
               ),              
             ),
+
+            
           ]
         )
       ),
       body: new TabBarView(
         controller: controller,
         children: <Widget>[
+          //Pestañas a
           new login.log_in(),
           new signup.sign_up(),
         ]

@@ -60,7 +60,9 @@ flutter:
       - assets/images/
       - assets/widgets/
       - assets/
-
+      - assets/product/burguer_1.jpg
+      - assets/product/burguer_2.jpg
+      - assets/product/burguer_3.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
