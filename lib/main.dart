@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:food_delivery/XDBusqueda.dart';
 import 'package:food_delivery/XDRestaurants.dart';
 
 Future<void> main() async{
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: XDPerfil("assets/images/people3.jpg", "Jose Misael", "example@gmail.com", "8714555556"),
-      home: XDRestaurants()
+      home: XDBusqueda(),
       // XDRestaurant("La Taquiza, Tacos & Drinks", 25.00, 4.5,
       //     "assets/images/restaurant1.png", "assets/images/restaurant1icon.jpg"),
     );

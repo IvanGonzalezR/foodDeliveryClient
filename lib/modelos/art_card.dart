@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/modelos/info_result_card.dart';
+import 'package:food_delivery/modelos/info_producto.dart' as info;
 
 class CardResult extends StatelessWidget{
 
@@ -21,17 +22,7 @@ class CardResult extends StatelessWidget{
                 height: 900,
                 color: Colors.white10,
                 child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      const Text('Modal BottomSheet'),
-                      ElevatedButton(
-                        child: const Text('Close BottomSheet'),
-                        onPressed: () => Navigator.pop(context),
-                      )
-                    ],
-                  ),
+                  child: new info.details_product(resultado)
                 ),
               );
             },
