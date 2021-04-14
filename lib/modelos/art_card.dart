@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/modelos/info_result_card.dart';
 import 'package:food_delivery/modelos/info_producto.dart' as info;
 
-class CardResult extends StatelessWidget{
-
+class CardResult extends StatelessWidget {
   //Información de la clase info_result_card
   res_card resultado;
   CardResult(this.resultado);
@@ -13,7 +12,6 @@ class CardResult extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return InkWell(
-
       onTap: (){
          showCupertinoModalPopup(
             context: context,
@@ -63,18 +61,10 @@ class CardResult extends StatelessWidget{
           ],
         ),
       ),
-          );
-  
-    }
-
-  Widget padding(Widget widget){
-    return Padding(
-    padding: 
-    EdgeInsets.all(7.0),
-    child: widget
-  );
+    );
   }
 
+  Widget padding(Widget widget) {
+    return Padding(padding: EdgeInsets.all(7.0), child: widget);
+  }
 }
-
-
