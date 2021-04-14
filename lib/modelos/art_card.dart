@@ -15,12 +15,16 @@ class CardResult extends StatelessWidget{
     return InkWell(
 
       onTap: (){
-         showModalBottomSheet<void>(
+         showCupertinoModalPopup(
             context: context,
+            barrierColor: Colors.grey.withAlpha(80),
             builder: (BuildContext context) {
               return Container(
+                decoration: BoxDecoration(
+                  color: Colors.transparent
+                ),
                 height: 900,
-                color: Colors.white10,
+                // color: Colors.white.withAlpha(100),
                 child: Center(
                   child: new info.details_product(resultado)
                 ),
@@ -30,6 +34,7 @@ class CardResult extends StatelessWidget{
       },
 
           child: Card(
+            color: Colors.white,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[

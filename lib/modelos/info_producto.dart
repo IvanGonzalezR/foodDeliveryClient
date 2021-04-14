@@ -10,10 +10,7 @@ class details_product extends StatelessWidget{
 
   Widget build(BuildContext context){
 
-
-
     return  Card(
-      
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       margin: EdgeInsets.all(15),
       elevation: 10,
@@ -30,12 +27,10 @@ class details_product extends StatelessWidget{
           children: <Widget>[
 
             // Usamos el widget Image para mostrar una imagen
-         
             // Usamos Container para el contenedor de la descripción
             Expanded(
               flex: 2,
               child: ListView(
-  
               padding: EdgeInsets.all(20),
               
               children: [
@@ -54,8 +49,6 @@ class details_product extends StatelessWidget{
                   
                 ),
               ),
-            
-
 
                 RichText(
 
@@ -173,10 +166,6 @@ class details_product extends StatelessWidget{
             ),
           
           ),
-          
-
-          
-
 
           ],
         ),

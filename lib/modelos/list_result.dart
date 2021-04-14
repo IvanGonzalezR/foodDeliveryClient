@@ -19,8 +19,7 @@ class ListaresultadosState extends State<ListaResultados>{
     return ListView.builder(
       shrinkWrap: true,
       itemCount: resultados.length,
-      itemBuilder: 
-      (BuildContext context, int index){
+      itemBuilder: (BuildContext context, int index){
         return Dismissible(
           key: ObjectKey(
             resultados[index]
@@ -32,8 +31,8 @@ class ListaresultadosState extends State<ListaResultados>{
 
           onDismissed: (direction){
             setState(() {
-                          resultados.removeAt(index);
-                        });
+              resultados.removeAt(index);
+            });
           },
         );
       }

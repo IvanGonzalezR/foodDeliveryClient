@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:adobe_xd/pinned.dart';
-import './XDTarjetaResultados.dart';
 import 'package:food_delivery/modelos/list_result.dart' as lista;
 
 class XDBusqueda extends StatelessWidget {

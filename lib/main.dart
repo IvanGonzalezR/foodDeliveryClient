@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:food_delivery/XDBusqueda.dart';
 import 'package:food_delivery/XDRestaurants.dart';
+import 'package:food_delivery/modelos/info_producto.dart';
 
 Future<void> main() async{
   runApp(MyApp());
