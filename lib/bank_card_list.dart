@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:food_delivery/bank_card.dart';
+import 'file:///E:/FlutterProjects/food_delivery/lib/modelos/bank_card.dart';
 
 class BankCardList extends StatefulWidget {
   final bool isHorizontal;

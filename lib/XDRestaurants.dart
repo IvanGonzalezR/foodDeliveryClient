@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/XDCarrito.dart';
-import 'package:food_delivery/carrito_action_button.dart';
+import 'package:food_delivery/modelos/carrito_action_button.dart';
 import 'package:food_delivery/profile_action_button.dart';
-import 'package:food_delivery/restaurant_Card.dart';
+import 'file:///E:/FlutterProjects/food_delivery/lib/modelos/restaurant_Card.dart';
 import 'package:food_delivery/slider_categorias.dart';
 import './XDPerfil.dart';
 

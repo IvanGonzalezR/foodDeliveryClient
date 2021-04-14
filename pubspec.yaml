@@ -32,8 +32,8 @@ dependencies:
   adobe_xd: ^1.1.0+1
   url_launcher: ^5.7.10
   sticky_headers: ^0.1.8
-  
-    
+  awesome_card: ^1.1.0
+
 
 
 dev_dependencies:
