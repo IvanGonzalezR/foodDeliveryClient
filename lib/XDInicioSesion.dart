@@ -55,7 +55,7 @@ class MyTabsState extends State<XDInicioSesion> with SingleTickerProviderStateMi
       ),
 
       backgroundColor: Color(0xffE25C4A),
-      bottom: new TabBar(
+      bottom: TabBar(
 
           controller: controller,
           tabs: <Tab>[
@@ -85,7 +85,7 @@ class MyTabsState extends State<XDInicioSesion> with SingleTickerProviderStateMi
       ),
       body: new TabBarView(
         controller: controller,
-        children: <Widget>[
+        children:[
           //Pestañas a
           new login.log_in(),
           new signup.sign_up(),

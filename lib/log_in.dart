@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/XDRestaurants.dart';
 
 class log_in extends StatefulWidget{
 
@@ -12,13 +14,13 @@ class _log_inState extends State<log_in>{
 
   Widget build(BuildContext context){
 
-    final logo = Hero(
-      tag: 'hero',
-      child: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        radius: 48.0,
-        child: Image.asset('assets/logo_login.png'),
-      )
+    final logo = Container(
+        padding: EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0),
+        child: CircleAvatar(
+          radius: 48.0,
+          backgroundColor: Colors.white,
+          foregroundImage: AssetImage('assets/logo_login.png'),
+        )
     );
 
     final textBienvenido =  Padding(
@@ -26,7 +28,7 @@ class _log_inState extends State<log_in>{
           child: Center(
             child: Text(
               'Iniciar Sesión',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 32, fontFamily: "Lato"),
+              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24, fontFamily: "Lato"),
               textAlign: TextAlign.center,
             ),
           )
@@ -73,24 +75,38 @@ class _log_inState extends State<log_in>{
       ),
     );
 
-    final loginButton = Container(
-      // padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height/20),
-      height: MediaQuery.of(context).size.height/17,
-      child: RaisedButton(
-        color: Color(0xffE25C4A),
-        onPressed: () {},
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-        child: Text(
-          "Iniciar Sesión",
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontFamily: "Lato",
-            color: Colors.white,
-            fontSize: 16.0
+    final loginButton = InkWell(
+      onTap: (){
+
+        // Navigator.popAndPushNamed(context, 'package:food_delivery/XDRestaurants.dart');
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width/2,
+        height: MediaQuery.of(context).size.height/17,
+        child: RaisedButton(
+          color: Color(0xffE25C4A),
+
+          onPressed: ()async{
+            await Navigator.pushAndRemoveUntil(context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) => XDRestaurants(),
+                ),
+                    (Route<dynamic> route) => false);
+          },
+
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+          child: Text(
+            "Iniciar Sesión",
+            style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontFamily: "Lato",
+                color: Colors.white,
+                fontSize: 16.0
+            ),
           ),
         ),
+
       ),
-      
     );
 
 
@@ -109,7 +125,7 @@ class _log_inState extends State<log_in>{
     );
     return new Scaffold(
 
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xffefefef),
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -117,14 +133,13 @@ class _log_inState extends State<log_in>{
         padding: EdgeInsets.only(left: MediaQuery.of(context).size.width/13, right: MediaQuery.of(context).size.width/13,
                                 bottom: MediaQuery.of(context).size.height/10),
         //Vamos agregando los elementos de inicio de sesión.
-        child: ListView(
-          shrinkWrap: true,
-          padding: EdgeInsets.only(left: 24.0, right: 24.0),
+        child: Column(
           children: <Widget>[
             logo,
             textBienvenido,
             SizedBox(height: 48.0),
-            setCorreo,
+            Container(child: setCorreo,
+                alignment: Alignment.centerLeft),
             email,
 
               //Contrasena

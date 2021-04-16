@@ -12,9 +12,9 @@ class ArrowBack extends StatefulWidget {
 }
 
 class _ArrowBackState extends State<ArrowBack> {
-  void onPressedFav(){
+  void onPressedFav() async{
       if(Navigator.canPop(context)){
-        Navigator.pop(context);
+        await Navigator.pop(context);
       }
   }
 

@@ -57,7 +57,7 @@ class _ProductCardState extends State<ProductCard> {
     );
 
     return InkWell(
-      onTap: (){/*Ventana a mostrar*/},
+      onTap: () async{/*Ventana a mostrar*/},
       child: Stack(
         alignment: Alignment.bottomRight,
         children: [

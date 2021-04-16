@@ -11,8 +11,8 @@ class ProfileActionButton extends StatefulWidget {
 
 class _ProfileActionButtonState extends State<ProfileActionButton> {
 
-  void onPressedFav(){
-      Navigator.push(
+  void onPressedFav() async{
+      await Navigator.push(
           context,
           CupertinoPageRoute(builder: (context) => widget.screens, maintainState: widget.maintain)
       );

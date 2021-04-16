@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/XDRestaurants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -14,13 +15,13 @@ class _sign_upState extends State<sign_up>{
   Widget build(BuildContext context){
 
 
-    final getAppIcon = Hero(
-      tag: 'hero',
-      child: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        radius: 48.0,
-        child: Image.asset('assets/logo_login.png'),
-      )
+    final logo = Container(
+      padding: EdgeInsets.all(20.0),
+        child: CircleAvatar(
+          radius: 48.0,
+          backgroundColor: Colors.white,
+          foregroundImage: AssetImage('assets/logo_login.png'),
+        )
     );
 
 
@@ -28,70 +29,194 @@ class _sign_upState extends State<sign_up>{
           padding:  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
           child: Center(
             child: Text(
-              'Registrate con...',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24),
+              'Regístrate',
+              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24, fontFamily: "Lato"),
               textAlign: TextAlign.center,
             ),
           )
     );
 
-    final logoFb = Hero(
-      tag: 'LogoFacebook',
-      child: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        radius: 48.0,
-        child: Image.asset('assets/facebook_logo.png')
-      )
+    final logoFb = InkWell(
+      onTap: (){ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Facebook Tapped")));},
+      child: Container(
+          height: MediaQuery.of(context).size.height/14,
+          child: CircleAvatar(
+            backgroundColor: Colors.white,
+            radius: MediaQuery.of(context).size.height/28,
+            foregroundImage: AssetImage('assets/facebook_logo.png'),
+          )),
     );
 
-    final logoGm = Hero(
-      tag: 'LogoGmail',
-      child: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        radius: 48.0,
-        child: Image.asset('assets/gmail_logo.png')
-      )
+    final logoGoogle = InkWell(
+      onTap: (){ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Google Tapped")));},
+      child: Container(
+          height: MediaQuery.of(context).size.height/14,
+          child: CircleAvatar(
+            backgroundColor: Colors.white,
+            radius: MediaQuery.of(context).size.height/28,
+            foregroundImage: AssetImage('assets/logo_google.png'),
+          )),
+          // child: Image(image: AssetImage('assets/google_logo.jpg'),fit: BoxFit.fill,),
     );
 
-    final logoGoogle = Hero(
-      tag: 'LogoGoogle',
-      child: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        radius: 48.0,
-        child: Image.asset('assets/google_logo.jpg')
-      )
+    final inputCorreo = Container(
+      width: MediaQuery.of(context).size.width/2.5,
+
+      child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
+        autofocus: false,
+        initialValue: '',
+        decoration: InputDecoration(
+            hintText: 'correo@gmail.com',
+            border: UnderlineInputBorder(),
+            hintStyle: TextStyle(color: Colors.grey[400], fontSize: 14)
+        ) ,
+      ),
     );
 
-    final forgoLabel = TextButton(
-    child: Text('Olvide mi contraseña', style: TextStyle(color: Colors.black),),
-    onPressed: () {
+    final inputPassword = Container(
+      width: MediaQuery.of(context).size.width/2.5,
 
-    },
+      child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
+        autofocus: false,
+        initialValue: '',
+        decoration: InputDecoration(
+            hintText: '********',
+            border: UnderlineInputBorder(),
+            hintStyle: TextStyle(color: Colors.grey[400], fontSize: 14)
+        ) ,
+      ),
     );
 
+    final correo1 = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text("Correo:",
+          style: TextStyle(
+            fontFamily: "Lato",
+            fontSize: 18.0
+          ),
+        ),
+        inputCorreo
+      ],
+    );
+
+    final password = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text("Contraseña:",
+          style: TextStyle(
+              fontFamily: "Lato",
+              fontSize: 18.0
+          ),
+        ),
+        inputPassword
+      ],
+    );
+
+    final correo2 = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text("Confirmar correo:",
+          style: TextStyle(
+              fontFamily: "Lato",
+              fontSize: 18.0
+          ),
+        ),
+        inputCorreo
+      ],
+    );
+
+    final registerButton = InkWell(
+      onTap: () => XDRestaurants(),
+      child: Container(
+        width: MediaQuery.of(context).size.width/2,
+        height: MediaQuery.of(context).size.height/17,
+        child: RaisedButton(
+          color: Color(0xffE25C4A),
+
+            onPressed: ()async{
+              await Navigator.pushAndRemoveUntil(context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => XDRestaurants(),
+                  ),
+                      (Route<dynamic> route) => false);
+            },
+
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+          child: Text(
+            "Registrarme",
+            style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontFamily: "Lato",
+                color: Colors.white,
+                fontSize: 16.0
+            ),
+          ),
+        ),
+
+      ),
+    );
+
+
+    final prefieres = Container(
+      child: Text(
+        "O si prefieres, inicia sesión con...",
+        style: TextStyle(
+          fontFamily: "Lato",
+          fontSize: 16
+        ),
+      ),
+    );
+
+    final logos = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        logoGoogle,
+        SizedBox(width: 20.0,),
+        logoFb
+      ],
+    );
 
     return new Scaffold(
 
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xffefefef),
       body: Center(
 
         //Vamos agregando los elementos de inicio de sesión.
-        child: ListView(
-          shrinkWrap: true,
-          padding: EdgeInsets.only(left: 24.0, right: 24.0),
-          children: <Widget>[
-            //Aquí vna los widgets de la pantalla, de manera ordenada
-            getAppIcon,
-            getPresentacion,
-            SizedBox(height: 48.0),
-            logoFb,
-            SizedBox(height: 48.0),
-            logoGm,
-            SizedBox(height: 48.0),
-            logoGoogle,
-            SizedBox(height: 48.0),
-            forgoLabel
-          ],
+        child: Container(
+
+          padding: EdgeInsets.only(left: MediaQuery.of(context).size.width/9, right: MediaQuery.of(context).size.width/9),
+          child: Column(
+            children:[
+              //Aquí vna los widgets de la pantalla, de manera ordenada
+              logo,
+              getPresentacion,
+              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/35,),
+              correo1,
+              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/60,),
+              correo2,
+              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/60,),
+              password,
+              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/25,),
+              prefieres,
+              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/80,),
+              logos,
+
+              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/30,),
+              registerButton,
+              // getPresentacion,
+              // SizedBox(height: 48.0),
+              // logoFb,
+              // SizedBox(height: 48.0),
+              // logoGm,
+              // SizedBox(height: 48.0),
+              // logoGoogle,
+              // SizedBox(height: 48.0),
+              // forgoLabel
+            ],
+          ),
         ),
       ),
 

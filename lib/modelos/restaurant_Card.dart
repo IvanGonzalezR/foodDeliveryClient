@@ -63,8 +63,8 @@ class _RestaurantCardState extends State<RestaurantCard> {
     );
 
     return InkWell(
-      onTap: (){
-          Navigator.push(
+      onTap: ()async{
+          await Navigator.push(
               context,
               CupertinoPageRoute(builder: (context) => XDRestaurant(widget.nombre_restaurant, widget.puntuacion, widget.costo_envio,
                   widget.path_image_store, widget.path_logo_store),

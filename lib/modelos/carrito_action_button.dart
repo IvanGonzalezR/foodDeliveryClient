@@ -11,14 +11,14 @@ class CarritoActionButton extends StatefulWidget {
 
 class _CarritoActionButton extends State<CarritoActionButton> {
 
-  void onPressedFav(){
+  void onPressedFav() async{
     if(Navigator.canPop(context)){
-      Navigator.pop(
+      await Navigator.pop(
           context,
           CupertinoPageRoute(builder: (context) => widget.screens, maintainState: widget.maintain)
       );
     }else{
-      Navigator.push(
+      await Navigator.push(
           context,
           CupertinoPageRoute(builder: (context) => widget.screens, maintainState: widget.maintain)
       );

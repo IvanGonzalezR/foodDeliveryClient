@@ -7,8 +7,9 @@ class FabAddCart extends StatefulWidget {
 
 class _FabAddCartState extends State<FabAddCart> {
 
-  void onPressed(){
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Producto añadido al carrito...")));
+
+  Future<void> onPressed() async{
+    await ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Producto añadido al carrito...")));
   }
 
   @override
