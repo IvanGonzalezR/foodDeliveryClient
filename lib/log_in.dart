@@ -22,26 +22,24 @@ class _log_inState extends State<log_in>{
     );
 
     final textBienvenido =  Padding(
-          padding:  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+          padding:  EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
           child: Center(
             child: Text(
-              'Iniciar Sesión.',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 32),
+              'Iniciar Sesión',
+              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 32, fontFamily: "Lato"),
               textAlign: TextAlign.center,
             ),
           )
         );
 
 //Texto Correo
-    final setCorreo =  Padding(
-          padding:  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-          child: Center(
+    final setCorreo =  Container(
+          padding:  EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 10.0),
             child: Text(
-              'Correo',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
-              textAlign: TextAlign.center,
+              'Correo:',
+              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20, fontFamily: "Lato"),
+              textAlign: TextAlign.left,
             ),
-          )
         );
 
     final email = TextFormField(
@@ -50,23 +48,18 @@ class _log_inState extends State<log_in>{
       initialValue: '',
       decoration: InputDecoration(
         hintText: 'Email',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32.0)
-        ),
+        border: UnderlineInputBorder(),
       ),
     );
 
 //Texto contraseña
-    final setContrasena =  Padding(
-          padding:  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-          child: Center(
+    final setContrasena =  Container(
+          padding:  EdgeInsets.fromLTRB(0.0,20.0, 20.0, 10.0),
             child: Text(
-              'Contraseña',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
-              textAlign: TextAlign.center,
+              'Contraseña:',
+              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20, fontFamily: "Lato"),
+              textAlign: TextAlign.left,
             ),
-          )
         );
 
     final password = TextFormField(
@@ -76,43 +69,53 @@ class _log_inState extends State<log_in>{
       obscureText: true,
       decoration: InputDecoration(
         hintText: 'Contraseña',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32.0)
-        ),
+        border: UnderlineInputBorder(),
       ),
     );
 
-    final loginButton = Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
-
-        child: RaisedButton(
-          color: Colors.orangeAccent,
-          onPressed: () {},
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          child: Text(
-            "Iniciar Sesión",
-            style: TextStyle(
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.w500,
-              ),
-            ),
+    final loginButton = Container(
+      // padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height/20),
+      height: MediaQuery.of(context).size.height/17,
+      child: RaisedButton(
+        color: Color(0xffE25C4A),
+        onPressed: () {},
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        child: Text(
+          "Iniciar Sesión",
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontFamily: "Lato",
+            color: Colors.white,
+            fontSize: 16.0
+          ),
         ),
+      ),
       
     );
 
 
     final forgoLabel = TextButton(
     
-    child: Text('Contraseña', style: TextStyle(color: Colors.black),),
+    child: Text('Olvidé mi contraseña',
+      style: TextStyle(
+          color: Color(0xffE25C4A),
+          fontFamily: "Lato",
+
+        decoration: TextDecoration.underline
+      ),
+    ),
     onPressed: () {},
 
     );
     return new Scaffold(
 
       backgroundColor: Colors.white,
-      body: Center(
-
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        alignment: Alignment.center,
+        padding: EdgeInsets.only(left: MediaQuery.of(context).size.width/13, right: MediaQuery.of(context).size.width/13,
+                                bottom: MediaQuery.of(context).size.height/10),
         //Vamos agregando los elementos de inicio de sesión.
         child: ListView(
           shrinkWrap: true,
@@ -123,13 +126,21 @@ class _log_inState extends State<log_in>{
             SizedBox(height: 48.0),
             setCorreo,
             email,
+
+              //Contrasena
             SizedBox(height: 8.0),
-            setContrasena,
+            Container(child: setContrasena,
+                alignment: Alignment.centerLeft),
             password,
+
+              //Olvide mi contrasena
+            SizedBox(height: 10),
+            Container(child: forgoLabel,
+            alignment: Alignment.centerRight),
+
+              //Boton Iniciar sesion
             SizedBox(height: 24.0),
             loginButton,
-            SizedBox(height: 10),
-            forgoLabel
           ],
         ),
       ),

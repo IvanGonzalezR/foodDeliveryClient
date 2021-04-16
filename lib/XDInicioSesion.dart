@@ -26,26 +26,10 @@ class MyTabsState extends State<XDInicioSesion> with SingleTickerProviderStateMi
   @override
   Widget build(BuildContext context){
 
-    final rect = Container(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children:  [
-            Expanded(
-              child: 
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius:  BorderRadius.circular(10),
-                  color: Colors.deepPurpleAccent,
-                ),
-              )
-            )
-        ],
-      ),
-    );
-    return new Scaffold(
-      
-      appBar: new AppBar(
-      
+    return Scaffold(
+
+      appBar: AppBar(
+
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -53,49 +37,49 @@ class MyTabsState extends State<XDInicioSesion> with SingleTickerProviderStateMi
           padding:  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
           child: Center(
             child: Text(
-              'Street Food Delivery.',
+              'Food Delivery',
               style: TextStyle(fontWeight: FontWeight.w400, fontSize: 32),
               textAlign: TextAlign.center,
             ),
           )
         ),
-        Padding(
-          padding:  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-          child: Center(
-            child: Image.asset('assets/logo.png', fit: BoxFit.contain,
-          height: 64,)
-          )
-        )
-          
+        // Padding(
+        //   padding:  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        //   child: Center(
+        //     child: Image.asset('assets/logo.png', fit: BoxFit.contain,
+        //   height: 64,)
+        //   )
+        // )
+
         ],
       ),
-      
-      backgroundColor: Color.fromRGBO(226, 92, 74, 1),
+
+      backgroundColor: Color(0xffE25C4A),
       bottom: new TabBar(
-                
+
           controller: controller,
           tabs: <Tab>[
-     
+
      //Seleccionar iniciar sesión o registrarse (Botones)
             new Tab(
-              
+
               child: Text(
               'Iniciar Sesión',
               style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
               textAlign: TextAlign.center,
-              ),              
+              ),
             ),
 
-                
-            new Tab(  
+
+            new Tab(
               child: Text(
               'Registrarse',
               style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
               textAlign: TextAlign.center,
-              ),              
+              ),
             ),
 
-            
+
           ]
         )
       ),
