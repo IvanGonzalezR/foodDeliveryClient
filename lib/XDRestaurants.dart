@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/XDBusqueda.dart';
 import 'package:food_delivery/XDCarrito.dart';
 import 'package:food_delivery/modelos/carrito_action_button.dart';
 import 'package:food_delivery/profile_action_button.dart';
@@ -63,7 +64,13 @@ class XDRestaurants extends StatelessWidget {
                 margin: EdgeInsets.only(left: MediaQuery.of(context).size.width/12, right: MediaQuery.of(context).size.width/12),
                 child: TextField(
                   cursorRadius: Radius.circular(20.0),
-                  onEditingComplete: (){FocusScope.of(context).requestFocus(new FocusNode());},
+                  onTap: (){
+                    FocusScope.of(context).requestFocus(new FocusNode());
+                     Navigator.push(
+                        context,
+                        CupertinoPageRoute(builder: (context) => XDBusqueda(), maintainState: true)
+                    );
+                  },
                   decoration: InputDecoration(
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(50.0), borderSide: BorderSide.none),
                       prefixIcon: Icon(Icons.search_rounded),
