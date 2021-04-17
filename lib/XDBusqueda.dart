@@ -57,6 +57,7 @@ class XDBusqueda extends StatelessWidget {
                     left: MediaQuery.of(context).size.width / 12,
                     right: MediaQuery.of(context).size.width / 12),
                 child: TextField(
+
                   cursorRadius: Radius.circular(20.0),
                   onEditingComplete: () {
                     FocusScope.of(context).requestFocus(new FocusNode());
@@ -84,6 +85,7 @@ class XDBusqueda extends StatelessWidget {
                           fontSize: 16.0)),
                   textAlignVertical: TextAlignVertical.bottom,
                   cursorColor: Color(0xffE25C4A),
+                  autofocus: true,
                   style: TextStyle(
                     fontFamily: "Lato",
                     fontSize: 16.0,
@@ -92,7 +94,7 @@ class XDBusqueda extends StatelessWidget {
                   ),
                 ),
               ),
-              lista.list_card_search(),
+                    lista.list_card_search(),
             ],
           ),
         ],

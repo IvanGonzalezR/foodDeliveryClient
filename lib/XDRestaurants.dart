@@ -75,11 +75,11 @@ class XDRestaurants extends StatelessWidget {
                     right: MediaQuery.of(context).size.width / 12),
                 child: TextField(
                   cursorRadius: Radius.circular(20.0),
-                  onEditingComplete: (){
-                    FocusScope.of(context).requestFocus(new FocusNode());
-                    Navigator.push(
-                    context,
-                    CupertinoPageRoute(builder: (context) => XDBusqueda(), maintainState: true)
+                  onTap: (){
+                      FocusScope.of(context).requestFocus(new FocusNode());
+                      Navigator.push(
+                      context,
+                      CupertinoPageRoute(builder: (context) => XDBusqueda(), maintainState: true)
                     );
                     },
                   decoration: InputDecoration(

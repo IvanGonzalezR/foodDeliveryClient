@@ -15,6 +15,9 @@ class list_card_searchState extends State<list_card_search> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return ListView.builder(
+      scrollDirection: Axis.vertical,
+
+        physics: BouncingScrollPhysics(),
         shrinkWrap: true,
         itemCount: resultados.length,
         itemBuilder: (BuildContext context, int index) {
