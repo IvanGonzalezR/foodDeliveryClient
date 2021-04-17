@@ -15,7 +15,7 @@ class list_card_searchState extends State<list_card_search> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return ListView.builder(
-        shrinkWrap: false,
+        shrinkWrap: true,
         itemCount: resultados.length,
         itemBuilder: (BuildContext context, int index) {
           return Dismissible(

@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
       ),
       // home: XDPerfil("assets/images/people3.jpg", "Jose Misael", "example@gmail.com", "8714555556"),
       home: XDInicioSesion()
-
       // XDRestaurant("La Taquiza, Tacos & Drinks", 25.00, 4.5,
       //     "assets/images/restaurant1.png", "assests/images/restaurant1icon.jpg"),
     );
