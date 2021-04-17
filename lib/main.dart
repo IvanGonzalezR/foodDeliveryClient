@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:food_delivery/XDBusqueda.dart';
 import 'package:food_delivery/XDInicioSesion.dart';
-import 'package:food_delivery/XDRestaurants.dart';
-import 'package:food_delivery/modelos/info_producto.dart';
 
-Future<void> main() async{
+Future<void> main() async {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
   // This widget is the root of your application.
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -33,9 +30,9 @@ class MyApp extends StatelessWidget {
       ),
       // home: XDPerfil("assets/images/people3.jpg", "Jose Misael", "example@gmail.com", "8714555556"),
       home: XDInicioSesion()
+
       // XDRestaurant("La Taquiza, Tacos & Drinks", 25.00, 4.5,
       //     "assets/images/restaurant1.png", "assests/images/restaurant1icon.jpg"),
     );
   }
 }
-

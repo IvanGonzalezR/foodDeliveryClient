@@ -19,14 +19,15 @@ class details_product extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
 
           // EL widget hijo que será recortado segun la propiedad anterior
-          child: Column(
-            children: <Widget>[
-              // Usamos el widget Image para mostrar una imagen
+          child: Column(children: <Widget>[
+            // Usamos el widget Image para mostrar una imagen
 
-              // Usamos Container para el contenedor de la descripción
-              Expanded(
-                flex: 2,
-                child: ListView(padding: EdgeInsets.all(20), children: [
+            // Usamos Container para el contenedor de la descripción
+            Expanded(
+              flex: 2,
+              child: ListView(
+                padding: EdgeInsets.all(20),
+                children: [
                   Container(
                     padding: EdgeInsets.only(bottom: 10),
                     height: MediaQuery.of(context).size.height / 2,
@@ -38,91 +39,121 @@ class details_product extends StatelessWidget {
                   ),
                   RichText(
                     text: TextSpan(
+                        //Valores de puntuación y de ciudad.
                         text: resultado.rating +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t' +
                             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t' +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t' +
+                            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t' +
+                            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t' +
+                            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t' +
                             resultado.ciudad,
-                        style: DefaultTextStyle.of(context).style,
+                        style: TextStyle(
+                          color: Color(0xffE25C4A),
+                          fontSize: 10,
+                          height: 2,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        //
                         children: <TextSpan>[
                           TextSpan(
                             text: '\n' + resultado.title,
                             style: TextStyle(
-                                fontSize: 20,
-                                height: 2,
+                                fontSize: 35,
+                                height: 1.5,
+                                color: Colors.black,
                                 fontWeight: FontWeight.w800),
                           ),
                           TextSpan(
                             text: '\n' + resultado.desc,
                             style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w500),
+                                fontSize: 16,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w300),
                           ),
                         ]),
                   ),
                   Container(
                     child: new Center(
                       child: new Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           new Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              new Text('Papas Fritas'),
-                              new FloatingActionButton(
-                                onPressed: () {},
-                                child: new Icon(
-                                  Icons.add,
-                                  color: Colors.black,
-                                ),
-                                backgroundColor: Colors.white,
+                              new Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  new Text(
+                                    'Papas Fritas',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black54),
+                                  ),
+                                ],
                               ),
-                              new Text('1',
-                                  style: new TextStyle(fontSize: 18.0)),
-                              new FloatingActionButton(
-                                onPressed: () {},
-                                child: new Icon(
-                                  Icons.remove,
-                                  size: 10,
-                                  color: Colors.black,
-                                ),
-                                backgroundColor: Colors.white,
+                              new Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  new FloatingActionButton(
+                                    backgroundColor: Colors.white,
+                                    onPressed: () {},
+                                    mini: true,
+                                    child: Icon(Icons.add_circle_outline,
+                                        color: Color(0xffE25C4A)),
+                                  )
+                                ],
                               ),
-                            ],
-                          ),
-                          new Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              new Text('Papas Fritas'),
-                              new FloatingActionButton(
-                                onPressed: () {},
-                                child: new Icon(
-                                  Icons.add,
-                                  color: Colors.black,
-                                ),
-                                backgroundColor: Colors.white,
+                              new Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [new Text('1')],
                               ),
-                              new Text('1',
-                                  style: new TextStyle(fontSize: 18.0)),
-                              new FloatingActionButton(
-                                onPressed: () {},
-                                child: new Icon(
-                                  Icons.remove,
-                                  size: 10,
-                                  color: Colors.black,
-                                ),
-                                backgroundColor: Colors.white,
+                              new Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  new FloatingActionButton(
+                                    backgroundColor: Colors.white,
+                                    onPressed: () {},
+                                    mini: true,
+                                    child: Icon(Icons.remove_circle_outline,
+                                        color: Color(0xffE25C4A)),
+                                  )
+                                ],
                               ),
                             ],
                           )
                         ],
                       ),
                     ),
-                  ),
-                ]),
+                  )
+                ],
               ),
-            ],
-          ),
-
+            ),
+          ]),
         ));
   }
 }
+
+/*
+
+ new Text('Papas Fritas'),
+                              new FloatingActionButton(
+                                onPressed: () {},
+                                child: new Icon(
+                                  Icons.add,
+                                  color: Colors.black,
+                                ),
+                                backgroundColor: Colors.white,
+                              ),
+                              new Text('1',
+                                  style: new TextStyle(fontSize: 18.0)),
+                              new FloatingActionButton(
+                                onPressed: () {},
+                                child: new Icon(
+                                  Icons.remove,
+                                  size: 10,
+                                  color: Colors.black,
+                                ),
+                                backgroundColor: Colors.white,
+                              ),
+
+*/
