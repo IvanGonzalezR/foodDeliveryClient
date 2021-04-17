@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'file:///E:/FlutterProjects/food_delivery/lib/modelos/bank_card.dart';
+import 'package:food_delivery/modelos/bank_card.dart';
 
 class SliderCategorias extends StatefulWidget {
   @override
@@ -11,8 +11,10 @@ class _SliderCategoriasState extends State<SliderCategorias> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height/13,
-      margin: EdgeInsets.only(left: MediaQuery.of(context).size.width/30, right: MediaQuery.of(context).size.width/30),
+      height: MediaQuery.of(context).size.height / 13,
+      margin: EdgeInsets.only(
+          left: MediaQuery.of(context).size.width / 30,
+          right: MediaQuery.of(context).size.width / 30),
       child: ListView(
         padding: EdgeInsets.all(10.0),
         scrollDirection: Axis.horizontal,
@@ -21,7 +23,8 @@ class _SliderCategoriasState extends State<SliderCategorias> {
           BankCard("sdsd", "02020"),
           BankCard("sdsd", "02020"),
           BankCard("sdsd", "02020"),
-        ],),
+        ],
+      ),
     );
   }
 }
