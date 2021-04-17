@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/modelos/list_card_search.dart' as lista;
-import 'package:food_delivery/bank_card_list.dart';
-import 'package:food_delivery/product_card.dart';
 
 class XDBusqueda extends StatelessWidget {
   XDBusqueda({
