@@ -22,7 +22,7 @@ class _BankCardListState extends State<BankCardList> {
       // ),
       child: ListView(
         padding: EdgeInsets.all(10.0),
-        scrollDirection: widget.isHorizontal ? Axis.horizontal : Axis.vertical,
+        scrollDirection: Axis.horizontal,
         addSemanticIndexes: true,
 
           //Creacion dinamica ListView.dinamic

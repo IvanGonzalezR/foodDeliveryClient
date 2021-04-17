@@ -72,7 +72,7 @@ class _XDPerfilState extends State<XDPerfil> {
       height: MediaQuery
           .of(context)
           .size
-          .height / 1.9,
+          .height / 1.7,
       margin: EdgeInsets.only(top: MediaQuery
           .of(context)
           .size
@@ -130,14 +130,35 @@ class _XDPerfilState extends State<XDPerfil> {
               border: UnderlineInputBorder(),
             ),
           ),
-
+          // Animated
           BankCardList(esEditable),
 
+              //Añadir nueva tarjeta button
           Icon(MyFlutterApp.arrows_alt_h, size: 30.0,),
           InkWell(
             onTap: () async{
               await setState((){
-                 esEditable ? esEditable=false : esEditable= true;
+                esEditable = !esEditable;
+              });
+            },
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Añadir nueva tarjeta" ,
+                    style: TextStyle(
+                        height: 2,
+                        fontFamily: "Lato",
+                        fontSize: 16.0,
+                        color: Color(0xff5EAAA8)
+                    ),),
+                  Icon(Icons.add_circle, color: Color(0xff5EAAA8),)
+                ],
+              ),
+          ),
+          InkWell(
+            onTap: () async{
+              await setState((){
+                 esEditable = !esEditable;
               });
             },
             child: Row(
