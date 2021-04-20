@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/bank_card_list.dart';
 import 'package:food_delivery/product_card.dart';
+import 'package:food_delivery/slider_categorias.dart';
 
 class XDRestaurant extends StatelessWidget {
   final String path_image_store;
@@ -90,7 +91,7 @@ class XDRestaurant extends StatelessWidget {
               ),
           Container(
             height: MediaQuery.of(context).size.height/12,
-              child: BankCardList(true)),
+              child: SliderCategorias()),
         ],
       ),
 

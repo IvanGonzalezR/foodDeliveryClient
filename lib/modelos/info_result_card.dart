@@ -23,7 +23,7 @@ class res_card{
     res_card(
       1,
       "Hamburguesitas el Kike",
-      "Hmaburguesa de 3 carnes preparada a mano con pan artesanal.",
+      "Hmaburguesa de 3 carnes preparada a mano con pan artesanal no con pan artesanal no con pan artesanal.",
       "assets/product/burguer_1.jpg",
       Colors.orangeAccent,
       "4.5",

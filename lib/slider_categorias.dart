@@ -19,10 +19,10 @@ class _SliderCategoriasState extends State<SliderCategorias> {
         padding: EdgeInsets.all(10.0),
         scrollDirection: Axis.horizontal,
         children: [
-          BankCard("sdsd", "02020"),
-          BankCard("sdsd", "02020"),
-          BankCard("sdsd", "02020"),
-          BankCard("sdsd", "02020"),
+          BankCard("Pizza", "02020", false),
+          BankCard("Sushi", "02020", false),
+          BankCard("Postres", "02020", false),
+          BankCard("Mariscos", "02020", false),
         ],
       ),
     );

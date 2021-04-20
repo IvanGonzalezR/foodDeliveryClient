@@ -15,7 +15,8 @@ class _log_inState extends State<log_in>{
   Widget build(BuildContext context){
 
     final logo = Container(
-        padding: EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0),
+        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/28) ,
+        padding: EdgeInsets.only(left: 20.0, right: 20.0),
         child: CircleAvatar(
           radius: 48.0,
           backgroundColor: Colors.white,
@@ -76,13 +77,10 @@ class _log_inState extends State<log_in>{
     );
 
     final loginButton = InkWell(
-      onTap: (){
-
-        // Navigator.popAndPushNamed(context, 'package:food_delivery/XDRestaurants.dart');
-      },
       child: Container(
         width: MediaQuery.of(context).size.width/2,
         height: MediaQuery.of(context).size.height/17,
+        margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height/17),
         child: RaisedButton(
           color: Color(0xffE25C4A),
 
@@ -123,7 +121,9 @@ class _log_inState extends State<log_in>{
     onPressed: () {},
 
     );
-    return new Scaffold(
+    return new GestureDetector(
+      onTap: (){FocusScope.of(context).unfocus();},
+      child: Scaffold(
 
       backgroundColor: Color(0xffefefef),
       body: Container(
@@ -131,35 +131,41 @@ class _log_inState extends State<log_in>{
         width: double.infinity,
         alignment: Alignment.center,
         padding: EdgeInsets.only(left: MediaQuery.of(context).size.width/13, right: MediaQuery.of(context).size.width/13,
-                                bottom: MediaQuery.of(context).size.height/10),
+                                ),
         //Vamos agregando los elementos de inicio de sesión.
-        child: Column(
-          children: <Widget>[
-            logo,
-            textBienvenido,
-            SizedBox(height: 48.0),
-            Container(child: setCorreo,
-                alignment: Alignment.centerLeft),
-            email,
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              logo,
+              textBienvenido,
+            Divider(height: MediaQuery.of(context).size.height*0.08, color: Colors.transparent,),
+            Column(
+                    children: [
+                      SizedBox(height: 48.0),
+                      Container(child: setCorreo,
+                          alignment: Alignment.centerLeft),
+                      email,
 
-              //Contrasena
-            SizedBox(height: 8.0),
-            Container(child: setContrasena,
-                alignment: Alignment.centerLeft),
-            password,
+                      //Contrasena
+                      SizedBox(height: 8.0),
+                      Container(child: setContrasena,
+                          alignment: Alignment.centerLeft),
+                      password,
+                    ],
+                  ),
+                //Olvide mi contrasena
+              SizedBox(height: 10),
+              Container(child: forgoLabel,
+              alignment: Alignment.centerRight),
 
-              //Olvide mi contrasena
-            SizedBox(height: 10),
-            Container(child: forgoLabel,
-            alignment: Alignment.centerRight),
-
-              //Boton Iniciar sesion
-            SizedBox(height: 24.0),
-            loginButton,
-          ],
+                //Boton Iniciar sesion
+              SizedBox(height: 24.0),
+              loginButton,
+            ],
+          ),
         ),
       ),
-
+      )
     );
   } 
 }

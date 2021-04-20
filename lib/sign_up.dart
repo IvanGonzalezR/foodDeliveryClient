@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery/XDRestaurants.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -15,15 +17,15 @@ class _sign_upState extends State<sign_up>{
   Widget build(BuildContext context){
 
 
-    final logo = Container(
-      padding: EdgeInsets.all(20.0),
-        child: CircleAvatar(
-          radius: 48.0,
-          backgroundColor: Colors.white,
-          foregroundImage: AssetImage('assets/logo_login.png'),
-        )
+    final logo =  Container(
+        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/28),
+        padding: EdgeInsets.only(bottom: 20.0),
+          child: CircleAvatar(
+            radius: 48.0,
+            backgroundColor: Colors.white,
+            foregroundImage: AssetImage('assets/logo_login.png'),
+          )
     );
-
 
       final getPresentacion =  Padding(
           padding:  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -81,6 +83,7 @@ class _sign_upState extends State<sign_up>{
         keyboardType: TextInputType.emailAddress,
         autofocus: false,
         initialValue: '',
+        obscureText: true,
         decoration: InputDecoration(
             hintText: '********',
             border: UnderlineInputBorder(),
@@ -179,21 +182,21 @@ class _sign_upState extends State<sign_up>{
       ],
     );
 
-    return new Scaffold(
+    return new GestureDetector(
+        onTap: (){FocusScope.of(context).unfocus();},
+        child: Scaffold(
 
       backgroundColor: Color(0xffefefef),
-      body: Center(
-
-        //Vamos agregando los elementos de inicio de sesión.
-        child: Container(
-
+      body: Container(
           padding: EdgeInsets.only(left: MediaQuery.of(context).size.width/9, right: MediaQuery.of(context).size.width/9),
-          child: Column(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.only(top: 0.0),
+            child: Column(
             children:[
               //Aquí vna los widgets de la pantalla, de manera ordenada
               logo,
               getPresentacion,
-              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/35,),
+              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/15,),
               correo1,
               Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/60,),
               correo2,
@@ -204,7 +207,7 @@ class _sign_upState extends State<sign_up>{
               Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/80,),
               logos,
 
-              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/30,),
+              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/22,),
               registerButton,
               // getPresentacion,
               // SizedBox(height: 48.0),
@@ -217,9 +220,9 @@ class _sign_upState extends State<sign_up>{
               // forgoLabel
             ],
           ),
+          )
         ),
       ),
-
     );
   } 
 }
