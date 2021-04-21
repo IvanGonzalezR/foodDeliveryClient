@@ -1597,7 +1597,8 @@ class XDSeleccinProducto extends StatelessWidget {
                   transition: LinkTransition.Fade,
                   ease: Curves.easeOut,
                   duration: 0.3,
-                  pageBuilder: () => XDRestaurant(),
+                  pageBuilder: () => XDRestaurant("La Taquiza, Tacos & Drinks", 25.00, 4.5,
+                      "assets/images/restaurant1.png", "assets/images/restaurant1icon.jpg"),
                 ),
               ],
               child: Container(

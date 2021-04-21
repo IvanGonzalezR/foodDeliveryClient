@@ -1,0 +1,9 @@
+Aquí can los modelos a utilizar para no generar
+problemas de localización de archivos.
+
+//
+result_card >> tarjetas de resultados donde, 
+irán almacenandose la información de productos 
+encontrados
+
+//

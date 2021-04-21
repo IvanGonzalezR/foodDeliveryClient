@@ -25,6 +25,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -32,6 +33,11 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   adobe_xd: ^1.1.0+1
+  url_launcher: ^5.7.10
+  sticky_headers: ^0.1.8
+  awesome_card: ^1.1.0
+
+
 
 dev_dependencies:
   flutter_test:
@@ -43,17 +49,23 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
+  
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
+  
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-
+  assets:
+      - assets/images/
+      - assets/widgets/
+      - assets/
+      - assets/product/burguer_1.jpg
+      - assets/product/burguer_2.jpg
+      - assets/product/burguer_3.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -79,3 +91,12 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: fonts/Lato-Regular.ttf
+    - family: MyFlutterApp
+      fonts:
+        - asset: fonts/MyFlutterApp.ttf
