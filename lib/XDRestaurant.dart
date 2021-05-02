@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/bank_card_list.dart';
 import 'package:food_delivery/product_card.dart';
@@ -36,62 +37,76 @@ class XDRestaurant extends StatelessWidget {
     final info_tienda = Container(
       height: MediaQuery.of(context).size.height/5,
       padding: EdgeInsets.only(
-          left: MediaQuery.of(context).size.width/20,
           top: MediaQuery.of(context).size.width/50,
-          right: MediaQuery.of(context).size.width/20
       ),
       decoration: BoxDecoration(
         color: Colors.white
       ),
-      child: Column(
+      child: Stack(
+        alignment: Alignment.bottomCenter,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Container(
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width/20,
+              right: MediaQuery.of(context).size.width/20
+            ),
+            child: Column(
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  //titulo
-                  Text(
-                    nombre_tienda,
-                    style: TextStyle(
-                        fontFamily: "Lato",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22.0
-                    ),
-                  ),
-                  Text(
-                    "Costo de envío: "+costo_envio.toString()+"MXN",
-                    style: TextStyle(
-                        fontFamily: "Lato",
-                        fontWeight: FontWeight.normal,
-                        fontSize: 16.0
-                    ),
-                  ),
-                  Row(
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.star, size: 16.0,),
+                      //titulo
                       Text(
-                        puntuacion.toString(),
+                        nombre_tienda,
+                        style: TextStyle(
+                            fontFamily: "Lato",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22.0
+                        ),
+                      ),
+                      Text(
+                        "Costo de envío: "+costo_envio.toString()+"MXN",
                         style: TextStyle(
                             fontFamily: "Lato",
                             fontWeight: FontWeight.normal,
                             fontSize: 16.0
                         ),
                       ),
+                      Row(
+                        children: [
+                          Icon(Icons.star, size: 16.0,),
+                          Text(
+                            puntuacion.toString(),
+                            style: TextStyle(
+                                fontFamily: "Lato",
+                                fontWeight: FontWeight.normal,
+                                fontSize: 16.0
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
-                ],
-              ),
-                  CircleAvatar(
-                    foregroundImage: AssetImage(path_logo_store),
-                    radius: MediaQuery.of(context).size.width/12,
-                  )
-                ],
-              ),
+                      CircleAvatar(
+                        foregroundImage: AssetImage(path_logo_store),
+                        radius: MediaQuery.of(context).size.width/12,
+                      )
+                    ],
+                  ),
+
+            ],
+        ),
+          ),
           Container(
-            height: MediaQuery.of(context).size.height/12,
-              child: SliderCategorias()),
+            alignment: Alignment(0.0,3.0),
+              padding: EdgeInsets.all(0),
+              margin: EdgeInsets.all(0),
+              height: MediaQuery.of(context).size.height/12,
+              child: SliderCategorias()
+          ),
         ],
       ),
 

@@ -105,7 +105,7 @@ class XDRestaurants extends StatelessWidget {
                   ),
                 ),
               ),
-              SliderCategorias(),
+              Divider(height: MediaQuery.of(context).size.height/40, color: Colors.transparent,),
               RestaurantCard(
                   "La Taquiza, Tacos & Drinks",
                   5.0,
