@@ -2,18 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/XDRestaurants.dart';
 
-class log_in extends StatefulWidget{
-
+class log_in extends StatefulWidget {
   static String tag = 'Login_page';
 
- _log_inState createState() => new _log_inState();
+  _log_inState createState() => new _log_inState();
 }
 
-class _log_inState extends State<log_in>{
-  @override 
-
-  Widget build(BuildContext context){
-
+class _log_inState extends State<log_in> {
+  @override
+  Widget build(BuildContext context) {
     final logo = Container(
         margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/28) ,
         padding: EdgeInsets.only(left: 20.0, right: 20.0),
@@ -21,29 +18,29 @@ class _log_inState extends State<log_in>{
           radius: 48.0,
           backgroundColor: Colors.white,
           foregroundImage: AssetImage('assets/logo_login.png'),
-        )
-    );
+        ));
 
-    final textBienvenido =  Padding(
-          padding:  EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
-          child: Center(
-            child: Text(
-              'Iniciar Sesión',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24, fontFamily: "Lato"),
-              textAlign: TextAlign.center,
-            ),
-          )
-        );
+    final textBienvenido = Padding(
+        padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
+        child: Center(
+          child: Text(
+            'Iniciar Sesión',
+            style: TextStyle(
+                fontWeight: FontWeight.w400, fontSize: 24, fontFamily: "Lato"),
+            textAlign: TextAlign.center,
+          ),
+        ));
 
 //Texto Correo
-    final setCorreo =  Container(
-          padding:  EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 10.0),
-            child: Text(
-              'Correo:',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20, fontFamily: "Lato"),
-              textAlign: TextAlign.left,
-            ),
-        );
+    final setCorreo = Container(
+      padding: EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 10.0),
+      child: Text(
+        'Correo:',
+        style: TextStyle(
+            fontWeight: FontWeight.w400, fontSize: 20, fontFamily: "Lato"),
+        textAlign: TextAlign.left,
+      ),
+    );
 
     final email = TextFormField(
       keyboardType: TextInputType.emailAddress,
@@ -56,14 +53,15 @@ class _log_inState extends State<log_in>{
     );
 
 //Texto contraseña
-    final setContrasena =  Container(
-          padding:  EdgeInsets.fromLTRB(0.0,20.0, 20.0, 10.0),
-            child: Text(
-              'Contraseña:',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20, fontFamily: "Lato"),
-              textAlign: TextAlign.left,
-            ),
-        );
+    final setContrasena = Container(
+      padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 10.0),
+      child: Text(
+        'Contraseña:',
+        style: TextStyle(
+            fontWeight: FontWeight.w400, fontSize: 20, fontFamily: "Lato"),
+        textAlign: TextAlign.left,
+      ),
+    );
 
     final password = TextFormField(
       keyboardType: TextInputType.emailAddress,
@@ -83,48 +81,42 @@ class _log_inState extends State<log_in>{
         margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height/17),
         child: RaisedButton(
           color: Color(0xffE25C4A),
-
-          onPressed: ()async{
-            await Navigator.pushAndRemoveUntil(context,
+          onPressed: () async {
+            await Navigator.pushAndRemoveUntil(
+                context,
                 MaterialPageRoute(
                   builder: (BuildContext context) => XDRestaurants(),
                 ),
-                    (Route<dynamic> route) => false);
+                (Route<dynamic> route) => false);
           },
-
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           child: Text(
             "Iniciar Sesión",
             style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontFamily: "Lato",
                 color: Colors.white,
-                fontSize: 16.0
-            ),
+                fontSize: 16.0),
           ),
         ),
-
       ),
     );
-
 
     final forgoLabel = TextButton(
-    
-    child: Text('Olvidé mi contraseña',
-      style: TextStyle(
-          color: Color(0xffE25C4A),
-          fontFamily: "Lato",
-
-        decoration: TextDecoration.underline
+      child: Text(
+        'Olvidé mi contraseña',
+        style: TextStyle(
+            color: Color(0xffE25C4A),
+            fontFamily: "Lato",
+            decoration: TextDecoration.underline),
       ),
-    ),
-    onPressed: () {},
-
+      onPressed: () {},
     );
+
     return new GestureDetector(
       onTap: (){FocusScope.of(context).unfocus();},
       child: Scaffold(
-
       backgroundColor: Color(0xffefefef),
       body: Container(
         height: double.infinity,
@@ -167,8 +159,5 @@ class _log_inState extends State<log_in>{
       ),
       )
     );
-  } 
+  }
 }
-
-
-
