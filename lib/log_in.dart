@@ -2,47 +2,44 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/XDRestaurants.dart';
 
-class log_in extends StatefulWidget{
-
+class log_in extends StatefulWidget {
   static String tag = 'Login_page';
 
- _log_inState createState() => new _log_inState();
+  _log_inState createState() => new _log_inState();
 }
 
-class _log_inState extends State<log_in>{
-  @override 
-
-  Widget build(BuildContext context){
-
+class _log_inState extends State<log_in> {
+  @override
+  Widget build(BuildContext context) {
     final logo = Container(
         padding: EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0),
         child: CircleAvatar(
           radius: 48.0,
           backgroundColor: Colors.white,
           foregroundImage: AssetImage('assets/logo_login.png'),
-        )
-    );
+        ));
 
-    final textBienvenido =  Padding(
-          padding:  EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
-          child: Center(
-            child: Text(
-              'Iniciar Sesión',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24, fontFamily: "Lato"),
-              textAlign: TextAlign.center,
-            ),
-          )
-        );
+    final textBienvenido = Padding(
+        padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
+        child: Center(
+          child: Text(
+            'Iniciar Sesión',
+            style: TextStyle(
+                fontWeight: FontWeight.w400, fontSize: 24, fontFamily: "Lato"),
+            textAlign: TextAlign.center,
+          ),
+        ));
 
 //Texto Correo
-    final setCorreo =  Container(
-          padding:  EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 10.0),
-            child: Text(
-              'Correo:',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20, fontFamily: "Lato"),
-              textAlign: TextAlign.left,
-            ),
-        );
+    final setCorreo = Container(
+      padding: EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 10.0),
+      child: Text(
+        'Correo:',
+        style: TextStyle(
+            fontWeight: FontWeight.w400, fontSize: 20, fontFamily: "Lato"),
+        textAlign: TextAlign.left,
+      ),
+    );
 
     final email = TextFormField(
       keyboardType: TextInputType.emailAddress,
@@ -55,14 +52,15 @@ class _log_inState extends State<log_in>{
     );
 
 //Texto contraseña
-    final setContrasena =  Container(
-          padding:  EdgeInsets.fromLTRB(0.0,20.0, 20.0, 10.0),
-            child: Text(
-              'Contraseña:',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20, fontFamily: "Lato"),
-              textAlign: TextAlign.left,
-            ),
-        );
+    final setContrasena = Container(
+      padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 10.0),
+      child: Text(
+        'Contraseña:',
+        style: TextStyle(
+            fontWeight: FontWeight.w400, fontSize: 20, fontFamily: "Lato"),
+        textAlign: TextAlign.left,
+      ),
+    );
 
     final password = TextFormField(
       keyboardType: TextInputType.emailAddress,
@@ -76,93 +74,80 @@ class _log_inState extends State<log_in>{
     );
 
     final loginButton = InkWell(
-      onTap: (){
-
+      onTap: () {
         // Navigator.popAndPushNamed(context, 'package:food_delivery/XDRestaurants.dart');
       },
       child: Container(
-        width: MediaQuery.of(context).size.width/2,
-        height: MediaQuery.of(context).size.height/17,
+        width: MediaQuery.of(context).size.width / 2,
+        height: MediaQuery.of(context).size.height / 17,
         child: RaisedButton(
           color: Color(0xffE25C4A),
-
-          onPressed: ()async{
-            await Navigator.pushAndRemoveUntil(context,
+          onPressed: () async {
+            await Navigator.pushAndRemoveUntil(
+                context,
                 MaterialPageRoute(
                   builder: (BuildContext context) => XDRestaurants(),
                 ),
-                    (Route<dynamic> route) => false);
+                (Route<dynamic> route) => false);
           },
-
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           child: Text(
             "Iniciar Sesión",
             style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontFamily: "Lato",
                 color: Colors.white,
-                fontSize: 16.0
-            ),
+                fontSize: 16.0),
           ),
         ),
-
       ),
     );
-
 
     final forgoLabel = TextButton(
-    
-    child: Text('Olvidé mi contraseña',
-      style: TextStyle(
-          color: Color(0xffE25C4A),
-          fontFamily: "Lato",
-
-        decoration: TextDecoration.underline
+      child: Text(
+        'Olvidé mi contraseña',
+        style: TextStyle(
+            color: Color(0xffE25C4A),
+            fontFamily: "Lato",
+            decoration: TextDecoration.underline),
       ),
-    ),
-    onPressed: () {},
-
+      onPressed: () {},
     );
     return new Scaffold(
-
       backgroundColor: Color(0xffefefef),
       body: Container(
         height: double.infinity,
         width: double.infinity,
         alignment: Alignment.center,
-        padding: EdgeInsets.only(left: MediaQuery.of(context).size.width/13, right: MediaQuery.of(context).size.width/13,
-                                bottom: MediaQuery.of(context).size.height/10),
+        padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width / 13,
+            right: MediaQuery.of(context).size.width / 13,
+            bottom: MediaQuery.of(context).size.height / 10),
         //Vamos agregando los elementos de inicio de sesión.
         child: Column(
           children: <Widget>[
             logo,
             textBienvenido,
             SizedBox(height: 48.0),
-            Container(child: setCorreo,
-                alignment: Alignment.centerLeft),
+            Container(child: setCorreo, alignment: Alignment.centerLeft),
             email,
 
-              //Contrasena
+            //Contrasena
             SizedBox(height: 8.0),
-            Container(child: setContrasena,
-                alignment: Alignment.centerLeft),
+            Container(child: setContrasena, alignment: Alignment.centerLeft),
             password,
 
-              //Olvide mi contrasena
+            //Olvide mi contrasena
             SizedBox(height: 10),
-            Container(child: forgoLabel,
-            alignment: Alignment.centerRight),
+            Container(child: forgoLabel, alignment: Alignment.centerRight),
 
-              //Boton Iniciar sesion
+            //Boton Iniciar sesion
             SizedBox(height: 24.0),
             loginButton,
           ],
         ),
       ),
-
     );
-  } 
+  }
 }
-
-
-
