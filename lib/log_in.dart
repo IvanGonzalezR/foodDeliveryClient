@@ -11,17 +11,8 @@ class log_in extends StatefulWidget {
 class _log_inState extends State<log_in> {
   @override
   Widget build(BuildContext context) {
-    final logo = Container(
-        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/28) ,
-        padding: EdgeInsets.only(left: 20.0, right: 20.0),
-        child: CircleAvatar(
-          radius: 48.0,
-          backgroundColor: Colors.white,
-          foregroundImage: AssetImage('assets/logo_login.png'),
-        ));
 
-    final textBienvenido = Padding(
-        padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
+    final textBienvenido = Container(
         child: Center(
           child: Text(
             'Iniciar Sesión',
@@ -128,9 +119,8 @@ class _log_inState extends State<log_in> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              logo,
               textBienvenido,
-            Divider(height: MediaQuery.of(context).size.height*0.08, color: Colors.transparent,),
+            Divider(height: MediaQuery.of(context).size.height/20, color: Colors.transparent,),
             Column(
                     children: [
                       SizedBox(height: 48.0),

@@ -16,19 +16,8 @@ class _sign_upState extends State<sign_up>{
 
   Widget build(BuildContext context){
 
-
-    final logo =  Container(
-        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/28),
-        padding: EdgeInsets.only(bottom: 20.0),
-          child: CircleAvatar(
-            radius: 48.0,
-            backgroundColor: Colors.white,
-            foregroundImage: AssetImage('assets/logo_login.png'),
-          )
-    );
-
-      final getPresentacion =  Padding(
-          padding:  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+      final getPresentacion =  Container(
+          margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/30),
           child: Center(
             child: Text(
               'Regístrate',
@@ -189,12 +178,12 @@ class _sign_upState extends State<sign_up>{
       backgroundColor: Color(0xffefefef),
       body: Container(
           padding: EdgeInsets.only(left: MediaQuery.of(context).size.width/9, right: MediaQuery.of(context).size.width/9),
+          height: MediaQuery.of(context).size.height - MediaQuery.of(context).size.height/3.5,
           child: SingleChildScrollView(
             padding: EdgeInsets.only(top: 0.0),
             child: Column(
             children:[
               //Aquí vna los widgets de la pantalla, de manera ordenada
-              logo,
               getPresentacion,
               Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/15,),
               correo1,
