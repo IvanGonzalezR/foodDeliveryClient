@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:food_delivery/modelos/info_result_store.dart';
 import './XDTarjetaResultados.dart';
 import 'dart:ui' as ui;
 import './XDBotn_Agregar.dart';
@@ -9,6 +10,7 @@ import './XDRestaurant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class XDSeleccinProducto extends StatelessWidget {
+  info_result_store resultado;
   XDSeleccinProducto({
     Key key,
   }) : super(key: key);
@@ -1597,8 +1599,7 @@ class XDSeleccinProducto extends StatelessWidget {
                   transition: LinkTransition.Fade,
                   ease: Curves.easeOut,
                   duration: 0.3,
-                  pageBuilder: () => XDRestaurant("La Taquiza, Tacos & Drinks", 25.00, 4.5,
-                      "assets/images/restaurant1.png", "assets/images/restaurant1icon.jpg"),
+                  pageBuilder: () => XDRestaurant(this.resultado),
                 ),
               ],
               child: Container(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/XDBusqueda.dart';
 import 'package:food_delivery/XDCarrito.dart';
 import 'package:food_delivery/modelos/carrito_action_button.dart';
+import 'package:food_delivery/modelos/info_result_store.dart';
 import 'package:food_delivery/profile_action_button.dart';
 import 'package:food_delivery/modelos/bank_card.dart';
 import 'package:food_delivery/slider_categorias.dart';
@@ -10,6 +11,7 @@ import './XDPerfil.dart';
 import 'modelos/restaurant_Card.dart';
 
 class XDRestaurants extends StatelessWidget {
+  info_result_store resultado;
   XDRestaurants({
     Key key,
   }) : super(key: key);
@@ -75,13 +77,14 @@ class XDRestaurants extends StatelessWidget {
                     right: MediaQuery.of(context).size.width / 12),
                 child: TextField(
                   cursorRadius: Radius.circular(20.0),
-                  onTap: (){
-                      FocusScope.of(context).requestFocus(new FocusNode());
-                      Navigator.push(
-                      context,
-                      CupertinoPageRoute(builder: (context) => XDBusqueda(), maintainState: true)
-                    );
-                    },
+                  onTap: () {
+                    FocusScope.of(context).requestFocus(new FocusNode());
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => XDBusqueda(),
+                            maintainState: true));
+                  },
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50.0),
@@ -105,37 +108,11 @@ class XDRestaurants extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider(height: MediaQuery.of(context).size.height/40, color: Colors.transparent,),
-              RestaurantCard(
-                  "La Taquiza, Tacos & Drinks",
-                  5.0,
-                  25.0,
-                  "assets/images/restaurant1.png",
-                  "assets/images/restaurant1icon.jpg"),
-              RestaurantCard(
-                  "Kasuki Sushi, Sushi & wok",
-                  3.2,
-                  23.0,
-                  "assets/images/restaurant1.png",
-                  "assets/images/restaurant1icon.jpg"),
-              RestaurantCard(
-                  "Dominoss Pizza",
-                  4.1,
-                  40.0,
-                  "assets/images/restaurant1.png",
-                  "assets/images/restaurant1icon.jpg"),
-              RestaurantCard(
-                  "La Michoacana",
-                  4.0,
-                  26.0,
-                  "assets/images/restaurant1.png",
-                  "assets/images/restaurant1icon.jpg"),
-              RestaurantCard(
-                  "La Taquiza, Tacos & Drinks",
-                  3.8,
-                  28.0,
-                  "assets/images/restaurant1.png",
-                  "assets/images/restaurant1icon.jpg"),
+              Divider(
+                height: MediaQuery.of(context).size.height / 40,
+                color: Colors.transparent,
+              ),
+              RestaurantCard(this.resultado),
             ],
           ),
         ],

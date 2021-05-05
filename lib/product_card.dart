@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/modelos/fab_add_cart.dart';
+import 'package:food_delivery/modelos/info_result_store.dart';
 
 class ProductCard extends StatefulWidget {
-  final String nombre_producto;
-  final String descripcion_producto;
-  final double costo_producto;
-  final String path_image;
+  info_result_store resultado;
 
-  ProductCard(this.nombre_producto, this.descripcion_producto,
-      this.costo_producto, this.path_image);
+  ProductCard(this.resultado);
 
   @override
   _ProductCardState createState() => _ProductCardState();
@@ -28,7 +25,7 @@ class _ProductCardState extends State<ProductCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                widget.nombre_producto,
+                widget.resultado.title,
                 overflow: TextOverflow.clip,
                 style: TextStyle(
                   fontFamily: "Lato",
@@ -37,7 +34,7 @@ class _ProductCardState extends State<ProductCard> {
                 ),
               ),
               Text(
-                widget.descripcion_producto,
+                widget.resultado.desc,
                 maxLines: 4,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
@@ -49,7 +46,7 @@ class _ProductCardState extends State<ProductCard> {
           ),
         ),
         Text(
-          "\$" + widget.costo_producto.toString() + " MXN",
+          "\$ 50 MXN",
           style: TextStyle(
             fontFamily: "Lato",
             fontSize: 16.0,
@@ -59,7 +56,7 @@ class _ProductCardState extends State<ProductCard> {
     ));
 
     return InkWell(
-      onTap: () async{/*Ventana a mostrar*/},
+      onTap: () async {/*Ventana a mostrar*/},
       child: Stack(
         alignment: Alignment.bottomRight,
         children: [
@@ -76,7 +73,7 @@ class _ProductCardState extends State<ProductCard> {
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 5.0),
                   child: Image(
-                    image: AssetImage(widget.path_image),
+                    image: AssetImage(widget.resultado.image),
                     height: MediaQuery.of(context).size.width / 4,
                     width: MediaQuery.of(context).size.width / 4,
                     fit: BoxFit.fill,
