@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/bank_card_list.dart';
-import 'package:food_delivery/product_card.dart';
+import 'file:///E:/FlutterProjects/food_delivery/lib/modelos/product_card.dart';
 import 'package:food_delivery/slider_categorias.dart';
 
 class XDRestaurant extends StatelessWidget {
