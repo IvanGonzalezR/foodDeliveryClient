@@ -47,6 +47,16 @@ class res_card{
       "4.1",
       "Lerdo"
     ),
+      res_card(
+          1,
+          "Muffin clásico",
+          "Rico muffin con un toque sabor vainilla con chispas de chocolate"
+              "con mucho chocolate para degustar",
+          "assets/images/muffin1.jpg",
+          Colors.orangeAccent,
+          "4.1",
+          "Lerdo"
+      ),
     ];
   }
 

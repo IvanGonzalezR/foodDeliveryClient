@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:food_delivery/modelos/info_producto.dart';
+import 'package:food_delivery/modelos/info_result_card.dart';
 
 class FabAddCart extends StatefulWidget {
   @override
@@ -6,10 +9,21 @@ class FabAddCart extends StatefulWidget {
 }
 
 class _FabAddCartState extends State<FabAddCart> {
-
+  res_card resultado;
 
   Future<void> onPressed() async{
-    await ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Producto añadido al carrito...")));
+    await showCupertinoModalPopup(
+      context: context,
+      barrierColor: Colors.grey.withAlpha(80),
+      builder: (BuildContext context) {
+        return Container(
+          decoration: BoxDecoration(color: Colors.transparent),
+          height: 900,
+          // color: Colors.white.withAlpha(100),
+          child: Center(child: details_product(res_card.tarjetas()[3])),
+        );
+      },
+    );
   }
 
   @override
