@@ -1618,7 +1618,7 @@ class XDSeleccinProducto extends StatelessWidget {
             fixedWidth: true,
             fixedHeight: true,
             child:
-                // Adobe XD layer: 'swipe_image' (shape)git 
+                // Adobe XD layer: 'swipe_image' (shape)git
                 Container(
               decoration: BoxDecoration(
                 image: DecorationImage(

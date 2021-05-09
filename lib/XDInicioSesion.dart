@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:splashscreen/splashscreen.dart';
 import 'log_in.dart' as login;
 import 'sign_up.dart' as signup;
 
