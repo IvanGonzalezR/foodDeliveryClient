@@ -42,7 +42,7 @@ class _splashscreenState extends State<splashscreen> {
                     backgroundColor: Colors.white,
                     foregroundImage: AssetImage('assets/logo_login.png'),
                   )),
-              //Imagen de carga
+              //Imagen de cargaa
               SizedBox(height: 8.0),
               SpinKitCubeGrid(
                 color: Colors.orangeAccent,
